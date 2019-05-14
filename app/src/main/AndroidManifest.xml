@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.kopps"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme">
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value=""/>
+
+        <activity
+            android:name="com.kopps.SplashActivity"
+            android:theme="@style/SplashTheme">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.kopps.MainActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name="com.kopps.RangingActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name="com.kopps.MapsActivity"
+            android:label="@string/title_activity_maps">
+        </activity>
+
+        <!-- uncomment the following to enable scanning for over 30 minutes on Android 7+ -->
+        <service
+            android:name="org.altbeacon.beacon.service.BeaconService"
+            tools:node="replace">
+            <meta-data
+                android:name="longScanForcingEnabled"
+                android:value="true" />
+
+        </service>
+    </application>
+
+</manifest>
