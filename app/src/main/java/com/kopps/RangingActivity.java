@@ -22,6 +22,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private List<Beacon> beaconList = new ArrayList<>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +68,8 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
                         beaconList.add(beacon);
                         // 여기에 비콘별로
                     }
+
+
                     logToDisplay();
                 }
             }
@@ -86,24 +89,58 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         });
     }
 
-    // 오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
-    private void logToDisplay() {
-        runOnUiThread(new Runnable() {
-            public void run() {
-                TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
-                String lists = "";
-                for (Beacon beacon : beaconList) {
-                    lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
+
+//    // 오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
+//            private void logToDisplay() {
+//                runOnUiThread(new Runnable() {
+//                    public void run() {
+//                        RelativeLayout relativelayout = (RelativeLayout) RangingActivity.this.findViewById(R.id.ranginglayout);
+//                        String lists = "";
+//
+//
+//                        for (Beacon beacon : beaconList) {
+//                            String beacon_name = "@+id/beacon" + String.valueOf(beacon.getId2());
+//
+//                            int test = getResources().getIdentifier(beacon_name, "id", getPackageName());
+//                            Log.d(TAG, "없음 " + test);
+//
+//                            if(test == 0) {
+//
+//                            } else {
+//                                int tests = getResources().getIdentifier(beacon_name, "id", getPackageName());
+//                                Log.d(TAG, "있나??" + tests);
+//                                TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
+////                                lists = "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
+//                                textview.setText("major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n");
+//                            }
+//
+//
+//                            Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
+//                            Log.d(TAG, beacon.toString());
+//                        }
+//
+//                    }
+
+
+
+
+
+//     오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
+            private void logToDisplay() {
+                runOnUiThread(new Runnable() {
+                    public void run() {
+                        TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
+                        String lists = "";
+                        for (Beacon beacon : beaconList) {
+                            lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
 
 //                    textview.append("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
-                    Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
-                    Log.d(TAG, beacon.toString());
-                }
-                textview.setText(lists + "\n" + "===================================================\n");
+                            Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
+                            Log.d(TAG, beacon.toString());
+                        }
+                        textview.setText(lists + "\n" + "===================================================\n");
 //                textview.append("===================================================\n");
-            }
-
-
+                    }
 
 
 

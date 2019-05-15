@@ -1,38 +1,26 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".RangingActivity"
+    android:orientation="vertical"
     android:id="@+id/ranginglayout">
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="17dp"
-        android:text="비콘들의 정보:" />
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/textView1"
         android:id="@+id/rangingscroll">
 
         <TextView
             android:id="@+id/rangingText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
             android:layout_marginTop="14dp"
-            android:ems="10"
-            android:gravity="left|top"
-            android:inputType="textMultiLine" >
+            android:ems="10">
         </TextView>
+
+        
 
     </ScrollView>
 
-</RelativeLayout>
+</LinearLayout>

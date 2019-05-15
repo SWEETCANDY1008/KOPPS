@@ -111,9 +111,16 @@ public class MainActivity extends AppCompatActivity {
             });
             builder.show();
         }
+
+
     }
 
-    // 버튼이 클릭되면 RangingActivity로 화면을 넘겨줌
+    // 버튼이 클릭되면 각 Activity로 화면을 넘겨줌
+    public void onRegisterClicked(View view) {
+        Intent myIntent = new Intent(this, RegisterActivity.class);
+        this.startActivity(myIntent);
+    }
+
     public void onRangingClicked(View view) {
         Intent myIntent = new Intent(this, RangingActivity.class);
         this.startActivity(myIntent);
@@ -123,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(this, MapsActivity.class);
         this.startActivity(myIntent);
     }
+
 
 
 

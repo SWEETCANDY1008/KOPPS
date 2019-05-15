@@ -1,25 +1,31 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity" >
 
     <Button
         android:id="@+id/Button01"
         android:layout_width="match_parent"
         android:layout_height="500px"
-        android:onClick="onRangingClicked"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:text="비콘 거리" />
+        android:onClick="onRegisterClicked"
+        android:text="비콘 등록" />
 
     <Button
         android:id="@+id/Button02"
         android:layout_width="match_parent"
         android:layout_height="500px"
-        android:layout_below="@+id/Button01"
+        android:onClick="onRangingClicked"
+        android:text="등록 비콘 거리" />
+
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="match_parent"
+        android:layout_height="500px"
         android:onClick="onMapClicked"
         android:text="지도 보기" />
 
-</RelativeLayout>
+
+
+</LinearLayout>
