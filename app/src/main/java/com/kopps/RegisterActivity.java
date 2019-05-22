@@ -4,7 +4,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
-import android.text.style.BackgroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -28,9 +27,6 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
     protected static final String TAG = "RegisterActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private ArrayList<Beacon> beaconList = new ArrayList<>();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -93,10 +89,8 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
 
         runOnUiThread(new Runnable() {
             public void run() {
-//                TextView[] textviews = new TextView[beaconList.size()];
 
                 for (Beacon beacon : beaconList) {
-                    int test = beaconList.indexOf(beacon);
 
                     // 비콘들의 정보가 들어가는 레이아웃
                     LinearLayout beaconlayout = new LinearLayout(RegisterActivity.this);
@@ -131,6 +125,7 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
                     // 각 비콘별로 레이아웃을 생성할 때 기존에 존재하는지 확인하기 위함
                     if(linearLayout.findViewWithTag("beacon"+beacon.getId2()) == null || linearLayout.findViewWithTag("beacon"+beacon.getId2()).equals(null)) {
                         beaconlayout.setBackgroundColor(Color.rgb(255,255,255));
+                        textviews.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
                         beaconlayout.addView(textviews);    // 각 비콘별 레이아웃에 텍스트뷰를 추가
                         // 버튼 추가란
                         beaconlayout.addView(button);
@@ -142,15 +137,6 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
                         textView.setGravity(Gravity.CENTER_VERTICAL);
                     }
 
-//                    textviews[test] = new TextView(RegisterActivity.this);
-//                    textviews[test].setTag("beacon"+beacon.getId2());
-//
-//                    if(linearLayout.findViewWithTag("beacon"+beacon.getId2()) == null || linearLayout.findViewWithTag("beacon"+beacon.getId2()).equals(null)) {
-//                        linearLayout.addView(textviews[beaconList.indexOf(beacon)]);
-//                    } else {
-//                        TextView textView = linearLayout.findViewWithTag("beacon"+beacon.getId2());
-//                        textView.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
-//                    }
                     final Beacon beacon_test = beacon;
 
                     Button buttons = (Button) button.findViewWithTag("beaconAddButton" + beacon.getId2());

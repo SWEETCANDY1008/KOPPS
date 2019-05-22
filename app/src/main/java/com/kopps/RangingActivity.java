@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -21,6 +20,12 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private List<Beacon> beaconList = new ArrayList<>();
+    private RegisterActivity registerActivity;
+
+
+
+
+
 
 
     @Override
