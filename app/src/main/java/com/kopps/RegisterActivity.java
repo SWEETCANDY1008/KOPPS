@@ -27,6 +27,11 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
     protected static final String TAG = "RegisterActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private ArrayList<Beacon> beaconList = new ArrayList<>();
+    public ArrayList<Beacon> addbeaconList = new ArrayList<>();
+
+    BGroup bgroup;
+    CachingBeacon cachingBeacon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,6 +73,7 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
                 if (beacons.size() > 0) {
                     beaconList.clear();
+//                    addbeaconList.clear();
                     Log.d(TAG, "didRangeBeaconsInRegion called with beacon count:  " + beacons.size());
                     for (Beacon beacon : beacons) {
                         beaconList.add(beacon);
@@ -82,14 +88,11 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
         } catch (RemoteException e) {   }
     }
 
-    //     오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
     private void logToDisplay() {
         final LinearLayout linearLayout = (LinearLayout) RegisterActivity.this.findViewById(R.id.linearlayout);
 
-
         runOnUiThread(new Runnable() {
             public void run() {
-
                 for (Beacon beacon : beaconList) {
 
                     // 비콘들의 정보가 들어가는 레이아웃
@@ -143,7 +146,39 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
                     buttons.setOnClickListener(new Button.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(getApplicationContext(), "눌렸습니다. 비콘의 이름은" + beacon_test.getId2() + "입니다.", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "비콘의 이름은" + beacon_test.getId2() + "입니다. 추가되었습니다.", Toast.LENGTH_LONG).show();
+//                            Toast.makeText(getApplicationContext(), "눌렸습니다. 비콘의 이름은" + beacon_test.getId2() + "입니다.", Toast.LENGTH_LONG).show();
+                            addbeaconList.add(beacon_test);
+
+
+
+
+
+
+
+
+//                            String filename = "internal_cache_data";        // cache에 저장될 파일 이름
+//                            String data = "Go ahead";                       // internal_cache_data파일에 저장될 내용
+//
+//                            try {
+//                                File cacheDir = getCacheDir();
+//                                File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
+//                                FileOutputStream fos = new FileOutputStream(cacheFile.getAbsolutePath());
+//                                fos.write(data.getBytes());
+//                                fos.close();
+//                            } catch(FileNotFoundException fnfe) {
+//                                fnfe.printStackTrace();
+//                            } catch(IOException ie) {
+//                                ie.printStackTrace();
+//                            }
+
+
+
+
+
+
+
+
                         }
                     });
 

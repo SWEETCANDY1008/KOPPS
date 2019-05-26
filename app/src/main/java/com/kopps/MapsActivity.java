@@ -1,15 +1,12 @@
 package com.kopps;
 
-import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
-import android.location.LocationListener;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -18,8 +15,6 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.location.places.GeoDataClient;
 import com.google.android.gms.location.places.PlaceDetectionClient;
-import com.google.android.gms.location.places.PlaceLikelihood;
-import com.google.android.gms.location.places.PlaceLikelihoodBufferResponse;
 import com.google.android.gms.location.places.Places;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -30,10 +25,8 @@ import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
-import com.google.android.gms.maps.model.PolylineOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -44,6 +37,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
+
 
     // The entry points to the Places API.
     private GeoDataClient mGeoDataClient;
@@ -149,16 +143,19 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Get the current location of the device and set the position of the map.
         getDeviceLocation();
 
+
     }
 
     /**
      * Gets the current location of the device, and positions the map's camera.
      */
     private void getDeviceLocation() {
+
         /*
          * Get the best and most recent location of the device, which may be null in rare
          * cases when a location is not available.
          */
+
         try {
             if (mLocationPermissionGranted) {
                 Task<Location> locationResult = mFusedLocationProviderClient.getLastLocation();
@@ -169,11 +166,24 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
 
+                            double Latitude = mLastKnownLocation.getLatitude();
+                            double Longitude = mLastKnownLocation.getLongitude();
 
+                            LatLng latlng= new LatLng(Latitude, Longitude);
 
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    new LatLng(mLastKnownLocation.getLatitude(),
-                                            mLastKnownLocation.getLongitude()), DEFAULT_ZOOM));
+                                    latlng, DEFAULT_ZOOM));
+
+//                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
+
+                            Circle circle = mMap.addCircle(new CircleOptions()
+                                    .center(latlng)
+                                    .radius(50)
+                                    .strokeColor(Color.RED)
+                                    .fillColor(0x5985ffff));
+
+                            circle.setCenter(latlng);
+
 
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
@@ -189,6 +199,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         } catch (SecurityException e)  {
             Log.e("Exception: %s", e.getMessage());
         }
+
+
     }
 
 
@@ -230,7 +242,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             }
         }
         updateLocationUI();
-    }
+}
 
     /**
      * Updates the map's UI settings based on whether the user has granted location permission.
@@ -243,6 +255,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
             if (mLocationPermissionGranted) {
                 mMap.setMyLocationEnabled(true);
                 mMap.getUiSettings().setMyLocationButtonEnabled(true);
+
             } else {
                 mMap.setMyLocationEnabled(false);
                 mMap.getUiSettings().setMyLocationButtonEnabled(false);
