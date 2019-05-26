@@ -171,10 +171,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                             LatLng latlng= new LatLng(Latitude, Longitude);
 
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    latlng, DEFAULT_ZOOM));
-
-//                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
+                            //                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
 
                             Circle circle = mMap.addCircle(new CircleOptions()
                                     .center(latlng)
@@ -182,9 +179,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                                     .strokeColor(Color.RED)
                                     .fillColor(0x5985ffff));
 
-                            circle.setCenter(latlng);
-
-
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
+                                    latlng, DEFAULT_ZOOM));
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());

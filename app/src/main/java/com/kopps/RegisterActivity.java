@@ -107,31 +107,35 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
                     Button button = new Button(RegisterActivity.this);
                     button.setTag("beaconAddButton"+beacon.getId2());
                     button.setText("추가");
-//                    button.setGravity(Gravity.RIGHT|Gravity.CENTER_VERTICAL);
 
                     LinearLayout.LayoutParams pm2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); //레이아웃파라미터 생성
                     pm2.setMargins(0, 10, 10, 10);
                     pm2.gravity = Gravity.CENTER_VERTICAL | Gravity.RIGHT;
-                    button.setLayoutParams(pm2);
 
 
                     final int height = (int)TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 100, getResources().getDisplayMetrics());
-
                     LinearLayout.LayoutParams pm = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT); //레이아웃파라미터 생성
                     pm.weight = 3;
                     pm.width = LinearLayout.LayoutParams.WRAP_CONTENT; //버튼의 너비를 설정(픽셀단위로도 지정가능)
                     pm.height = height; //버튼의 높이를 설정(픽셀단위로도 지정 가능)
                     pm.setMargins(10, 10, 0, 10);
                     pm.gravity = Gravity.CENTER_VERTICAL;
-                    textviews.setLayoutParams(pm);
+
+
 
                     // 각 비콘별로 레이아웃을 생성할 때 기존에 존재하는지 확인하기 위함
                     if(linearLayout.findViewWithTag("beacon"+beacon.getId2()) == null || linearLayout.findViewWithTag("beacon"+beacon.getId2()).equals(null)) {
                         beaconlayout.setBackgroundColor(Color.rgb(255,255,255));
+
+                        button.setLayoutParams(pm2);
+                        textviews.setLayoutParams(pm);
+
                         textviews.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
+
                         beaconlayout.addView(textviews);    // 각 비콘별 레이아웃에 텍스트뷰를 추가
                         // 버튼 추가란
                         beaconlayout.addView(button);
+
                         linearLayout.addView(beaconlayout);
 
                     } else {
@@ -149,8 +153,6 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
                             Toast.makeText(getApplicationContext(), "비콘의 이름은" + beacon_test.getId2() + "입니다. 추가되었습니다.", Toast.LENGTH_LONG).show();
 //                            Toast.makeText(getApplicationContext(), "눌렸습니다. 비콘의 이름은" + beacon_test.getId2() + "입니다.", Toast.LENGTH_LONG).show();
                             addbeaconList.add(beacon_test);
-
-
 
 
 

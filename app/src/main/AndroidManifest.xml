@@ -38,6 +38,11 @@
         </activity>
 
         <activity
+            android:name="com.kopps.MenuActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
             android:name="com.kopps.RegisterActivity"
             android:label="@string/app_name">
         </activity>

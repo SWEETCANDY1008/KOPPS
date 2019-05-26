@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/linearlayout">
+
+    <Button
+        android:id="@+id/groupadd"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:onClick="onRegisterClicked"
+        android:text="그룹 생성" />
+
+    <Button
+        android:id="@+id/groupchange"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="그룹 수정" />
+
+    <Button
+        android:id="@+id/groupdelete"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="그룹 삭제" />
+
+</LinearLayout>

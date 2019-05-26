@@ -111,8 +111,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 버튼이 클릭되면 각 Activity로 화면을 넘겨줌
-    public void onRegisterClicked(View view) {
-        Intent myIntent = new Intent(this, RegisterActivity.class);
+    public void onMenuClicked(View view) {
+        Intent myIntent = new Intent(this, MenuActivity.class);
         this.startActivity(myIntent);
     }
 
