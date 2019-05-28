@@ -1,8 +1,14 @@
 package com.kopps;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Scanner;
+
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
@@ -19,7 +25,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private List<Beacon> beaconList = new ArrayList<>();
-    CachingBeacon cachingBeacon;
+    private List<String[]> stringbeacon = new ArrayList<String[]>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +38,36 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
         // 앱이 실행되고(액티비티가 전환되어 왔을 때) beaconManager 서비스를 실행한다.
         beaconManager.bind(this);
+
+        String filename = "internal_cache_data";        // cache에 저장될 파일 이름
+
+        try {
+            File cacheDir = getCacheDir();
+            File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
+            FileInputStream inputStream = new FileInputStream(cacheFile.getAbsolutePath());
+
+            Scanner s = new Scanner(inputStream);
+            String text="";
+            while(s.hasNext()){
+                text+=s.nextLine();
+
+                Log.d(TAG, text);
+            }
+
+            inputStream.close();
+//                            Log.d(TAG, text);
+            Log.d(TAG, String.valueOf(text.length()));
+        } catch(FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        } catch(IOException ie) {
+            ie.printStackTrace();
+        }
+
+
+
+
+
+
     }
 
     @Override
@@ -90,54 +126,14 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
                             lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
 
-//                    textview.append("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
                             Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
                             Log.d(TAG, beacon.toString());
                         }
+
                         textview.setText(lists + "\n" + "===================================================\n");
 
 
 
-
-
-//                        String filename = "internal_cache_data";        // cache에 저장될 파일 이름
-//                        String data = "Go ahead";                       // internal_cache_data파일에 저장될 내용
-//                        try {
-//                            File cacheDir = getCacheDir();
-//                            File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
-//                            FileInputStream inputStream = new FileInputStream(cacheFile.getAbsolutePath());
-//
-//                            Scanner s = new Scanner(inputStream);
-//                            String text="";
-//                            while(s.hasNext()){
-//                                text+=s.nextLine();
-//                            }
-//                            inputStream.close();
-//                            Log.d(TAG, text);
-//                            Log.d(TAG, String.valueOf(text.length()));
-//                        } catch(FileNotFoundException fnfe) {
-//                            fnfe.printStackTrace();
-//                        } catch(IOException ie) {
-//                            ie.printStackTrace();
-//                        }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//                textview.append("===================================================\n");
                     }
 
 

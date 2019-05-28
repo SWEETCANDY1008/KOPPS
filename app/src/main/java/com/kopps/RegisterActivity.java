@@ -1,5 +1,6 @@
 package com.kopps;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.RemoteException;
@@ -20,6 +21,10 @@ import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -30,7 +35,6 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
     public ArrayList<Beacon> addbeaconList = new ArrayList<>();
 
     BGroup bgroup;
-    CachingBeacon cachingBeacon;
 
 
     @Override
@@ -125,7 +129,7 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
 
                     // 각 비콘별로 레이아웃을 생성할 때 기존에 존재하는지 확인하기 위함
                     if(linearLayout.findViewWithTag("beacon"+beacon.getId2()) == null || linearLayout.findViewWithTag("beacon"+beacon.getId2()).equals(null)) {
-                        beaconlayout.setBackgroundColor(Color.rgb(255,255,255));
+//                        beaconlayout.setBackgroundColor(Color.rgb(255,255,255));
 
                         button.setLayoutParams(pm2);
                         textviews.setLayoutParams(pm);
@@ -154,25 +158,26 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
 //                            Toast.makeText(getApplicationContext(), "눌렸습니다. 비콘의 이름은" + beacon_test.getId2() + "입니다.", Toast.LENGTH_LONG).show();
                             addbeaconList.add(beacon_test);
 
-
-
-
-
-
-//                            String filename = "internal_cache_data";        // cache에 저장될 파일 이름
+                            String filename = "internal_cache_data";        // cache에 저장될 파일 이름
 //                            String data = "Go ahead";                       // internal_cache_data파일에 저장될 내용
-//
-//                            try {
-//                                File cacheDir = getCacheDir();
-//                                File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
-//                                FileOutputStream fos = new FileOutputStream(cacheFile.getAbsolutePath());
-//                                fos.write(data.getBytes());
-//                                fos.close();
-//                            } catch(FileNotFoundException fnfe) {
-//                                fnfe.printStackTrace();
-//                            } catch(IOException ie) {
-//                                ie.printStackTrace();
-//                            }
+                            String slice = " | ";
+                            String id1 = "id1 : " + beacon_test.getId1() + slice;
+                            String id2 = "id2 : " + beacon_test.getId2() + slice;
+                            String id3 = "id3 : " + beacon_test.getId3();
+                            String data = id1 + id2 + id3;
+//                          data : id1 | id2 | id3
+
+                            try {
+                                File cacheDir = getCacheDir();
+                                File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
+                                FileOutputStream fos = new FileOutputStream(cacheFile.getAbsolutePath());
+                                fos.write(data.getBytes());
+                                fos.close();
+                            } catch(FileNotFoundException fnfe) {
+                                fnfe.printStackTrace();
+                            } catch(IOException ie) {
+                                ie.printStackTrace();
+                            }
 
 
 

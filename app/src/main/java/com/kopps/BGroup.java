@@ -1,11 +1,13 @@
 package com.kopps;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 // 비콘 그룹 클래스 - 동적 배열로 그룹 관리
 // 비콘 id1=uuid, id2=major, id3=minor 로 비콘 구별
 // b_name 으로 비콘에게 별명 부여
 class BGroup {
+
     String bg_name;
     ArrayList<String[]> bg_array; // 비콘식별 배열 로 이루어진 비콘 그룹 리스트
 
