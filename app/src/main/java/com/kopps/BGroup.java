@@ -1,6 +1,6 @@
 package com.kopps;
 
-import java.io.Serializable;
+
 import java.util.ArrayList;
 
 // 비콘 그룹 클래스 - 동적 배열로 그룹 관리
