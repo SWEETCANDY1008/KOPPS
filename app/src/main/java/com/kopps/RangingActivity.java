@@ -3,12 +3,10 @@ package com.kopps;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
@@ -21,7 +19,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private List<Beacon> beaconList = new ArrayList<>();
-
+    CachingBeacon cachingBeacon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,6 +59,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
+
                 if (beacons.size() > 0) {
                     beaconList.clear();
                     Log.d(TAG, "didRangeBeaconsInRegion called with beacon count:  " + beacons.size());
@@ -68,7 +67,6 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
                         beaconList.add(beacon);
                         // 여기에 비콘별로
                     }
-
 
                     logToDisplay();
                 }
@@ -80,49 +78,6 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         } catch (RemoteException e) {   }
     }
 
-    public void logToDisplay(final String line) {
-        runOnUiThread(new Runnable() {
-            public void run() {
-                TextView textview = (TextView)RangingActivity.this.findViewById(R.id.rangingText);
-                textview.append(line+"\n");
-            }
-        });
-    }
-
-
-//    // 오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
-//            private void logToDisplay() {
-//                runOnUiThread(new Runnable() {
-//                    public void run() {
-//                        RelativeLayout relativelayout = (RelativeLayout) RangingActivity.this.findViewById(R.id.ranginglayout);
-//                        String lists = "";
-//
-//
-//                        for (Beacon beacon : beaconList) {
-//                            String beacon_name = "@+id/beacon" + String.valueOf(beacon.getId2());
-//
-//                            int test = getResources().getIdentifier(beacon_name, "id", getPackageName());
-//                            Log.d(TAG, "없음 " + test);
-//
-//                            if(test == 0) {
-//
-//                            } else {
-//                                int tests = getResources().getIdentifier(beacon_name, "id", getPackageName());
-//                                Log.d(TAG, "있나??" + tests);
-//                                TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
-////                                lists = "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
-//                                textview.setText("major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n");
-//                            }
-//
-//
-//                            Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
-//                            Log.d(TAG, beacon.toString());
-//                        }
-//
-//                    }
-
-
-
 
 
 //     오버로딩(BeaconReferenceApplication에서 동일한 이름의 logToDisplay가 사용됨)
@@ -132,6 +87,7 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
                         TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
                         String lists = "";
                         for (Beacon beacon : beaconList) {
+
                             lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
 
 //                    textview.append("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
@@ -139,6 +95,48 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
                             Log.d(TAG, beacon.toString());
                         }
                         textview.setText(lists + "\n" + "===================================================\n");
+
+
+
+
+
+//                        String filename = "internal_cache_data";        // cache에 저장될 파일 이름
+//                        String data = "Go ahead";                       // internal_cache_data파일에 저장될 내용
+//                        try {
+//                            File cacheDir = getCacheDir();
+//                            File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
+//                            FileInputStream inputStream = new FileInputStream(cacheFile.getAbsolutePath());
+//
+//                            Scanner s = new Scanner(inputStream);
+//                            String text="";
+//                            while(s.hasNext()){
+//                                text+=s.nextLine();
+//                            }
+//                            inputStream.close();
+//                            Log.d(TAG, text);
+//                            Log.d(TAG, String.valueOf(text.length()));
+//                        } catch(FileNotFoundException fnfe) {
+//                            fnfe.printStackTrace();
+//                        } catch(IOException ie) {
+//                            ie.printStackTrace();
+//                        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //                textview.append("===================================================\n");
                     }
 

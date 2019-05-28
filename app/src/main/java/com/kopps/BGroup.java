@@ -14,9 +14,11 @@ class BGroup {
         this.bg_name = name;
         this.bg_array = new ArrayList<String[]>();
     }
+
     String get_BGname() {
         return this.bg_name;
     }
+
     // 비콘을 그룹에 추가
     void add_beacon(String id1, String id2, String id3, String b_name){
         // 리스트에 추가할 모습으로 형변환

@@ -9,8 +9,8 @@
         android:id="@+id/Button01"
         android:layout_width="match_parent"
         android:layout_height="500px"
-        android:onClick="onRegisterClicked"
-        android:text="비콘 등록" />
+        android:onClick="onMenuClicked"
+        android:text="비콘 관리" />
 
     <Button
         android:id="@+id/Button02"
