@@ -8,27 +8,33 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="0.25"
         android:text="그룹 수정 창"/>
 
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_weight="0.25"
         android:id="@+id/spinners">
     </Spinner>
 
     <LinearLayout
+        android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <TextView
+            android:layout_weight="0.25"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="아래는 그룹안에 있는 비콘 정보들"/>
 
         <TextView
+            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:id="@+id/beacondata"/>
 
 
     </LinearLayout>
@@ -36,6 +42,7 @@
 
 
     <Button
+        android:layout_weight="0.25"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="그룹 수정" />

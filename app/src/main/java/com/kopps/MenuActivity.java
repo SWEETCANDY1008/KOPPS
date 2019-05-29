@@ -38,6 +38,8 @@ public class MenuActivity extends AppCompatActivity {
 
 
 
+
+
 //    public void onRegisterClicked(View view) {
 //        Intent myIntent = new Intent(this, RegisterActivity.class);
 //        this.startActivity(myIntent);

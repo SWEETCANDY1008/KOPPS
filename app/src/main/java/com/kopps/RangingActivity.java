@@ -95,7 +95,6 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
         beaconManager.setRangeNotifier(new RangeNotifier() {
             @Override
             public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
-
                 if (beacons.size() > 0) {
                     beaconList.clear();
                     Log.d(TAG, "didRangeBeaconsInRegion called with beacon count:  " + beacons.size());
@@ -120,17 +119,16 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
             private void logToDisplay() {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
+//                        TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
                         String lists = "";
                         for (Beacon beacon : beaconList) {
 
                             lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
-
                             Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
                             Log.d(TAG, beacon.toString());
                         }
 
-                        textview.setText(lists + "\n" + "===================================================\n");
+//                        textview.setText(lists + "\n" + "===================================================\n");
 
 
 

@@ -27,6 +27,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class RegisterActivity extends AppCompatActivity implements BeaconConsumer {
     protected static final String TAG = "RegisterActivity";
@@ -35,7 +36,6 @@ public class RegisterActivity extends AppCompatActivity implements BeaconConsume
     public ArrayList<Beacon> addbeaconList = new ArrayList<>();
 
     BGroup bgroup;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -43,42 +43,15 @@ public class BeaconAddingActivity extends AppCompatActivity {
         Intent intent = getIntent();
         beacon_test = (Beacon) intent.getSerializableExtra("beacon_test");
 
+        CachingBeacon cachingBeacon = new CachingBeacon(this);
+
         Log.d(TAG, "BZ" + beacon_test.getId2());
         Log.d(TAG, "BZ" + beacon_test.getDistance());
 
         Spinner spinner = (Spinner) findViewById(R.id.spinners);
-        String selectdeletegroup = spinner.getSelectedItem().toString();
+        String selectgroup = spinner.getSelectedItem().toString();
 
-        String path = getCacheDir().toString();
-        File directory = new File(path);
-        File[] files = directory.listFiles();
-
-        for (int i=0; i< files.length; i++) {
-            String addinggroupname = files[i].getName();
-
-            if(!selectdeletegroup.equals(addinggroupname)) {
-                Toast.makeText(getApplicationContext(), "비콘이 추가되지 않았습니다.", Toast.LENGTH_LONG).show();
-            } else {
-                String slice = " | ";
-                String id1 = "id1 : " + beacon_test.getId1() + slice;
-                String id2 = "id2 : " + beacon_test.getId2() + slice;
-                String id3 = "id3 : " + beacon_test.getId3();
-                String data = id1 + id2 + id3;
-//                          data : id1 | id2 | id3
-
-                String filename = addinggroupname;
-                File cacheDir = getCacheDir();
-                File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
-                FileOutputStream fos = new FileOutputStream(cacheFile.getAbsolutePath());
-                fos.write(data.getBytes());
-                fos.close();
-
-                Toast.makeText(getApplicationContext(), "비콘이 추가되었습니다. 그룹 이름 : " + addinggroupname, Toast.LENGTH_LONG).show();
-                finish();
-            }
-        }
-
-
-
+        cachingBeacon.writefile(this, selectgroup, beacon_test);
+        finish();
     }
 }
