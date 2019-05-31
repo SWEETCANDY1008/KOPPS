@@ -1,6 +1,5 @@
 package com.kopps;
 
-
 import android.Manifest;
 import android.annotation.TargetApi;
 import android.content.pm.PackageManager;
@@ -12,6 +11,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+
 import org.altbeacon.beacon.BeaconManager;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,7 +24,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // 블루투스 및 위치권한 검사
         verifyBluetooth();
 
         // 안드로이드 버전 확인
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
                         requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION},
                                 PERMISSION_REQUEST_COARSE_LOCATION);
                     }
-
                 });
                 builder.show();
             }
@@ -68,7 +66,6 @@ public class MainActivity extends AppCompatActivity {
                         @Override
                         public void onDismiss(DialogInterface dialog) {
                         }
-
                     });
                     builder.show();
                 }
@@ -111,18 +108,21 @@ public class MainActivity extends AppCompatActivity {
             });
             builder.show();
         }
-
-
     }
 
     // 버튼이 클릭되면 각 Activity로 화면을 넘겨줌
-    public void onRegisterClicked(View view) {
-        Intent myIntent = new Intent(this, RegisterActivity.class);
+    public void onMenuClicked(View view) {
+        Intent myIntent = new Intent(this, MenuActivity.class);
         this.startActivity(myIntent);
     }
 
-    public void onRangingClicked(View view) {
-        Intent myIntent = new Intent(this, RangingActivity.class);
+//    public void onRangingClicked(View view) {
+//        Intent myIntent = new Intent(this, RangingActivity.class);
+//        this.startActivity(myIntent);
+//    }
+
+    public void onFindBeaconInGroupClicked(View view) {
+        Intent myIntent = new Intent(this, FindBeaconInGroupActivity.class);
         this.startActivity(myIntent);
     }
 
@@ -130,9 +130,4 @@ public class MainActivity extends AppCompatActivity {
         Intent myIntent = new Intent(this, MapsActivity.class);
         this.startActivity(myIntent);
     }
-
-
-
-
-
 }
