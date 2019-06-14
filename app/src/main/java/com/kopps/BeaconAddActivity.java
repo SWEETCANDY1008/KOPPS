@@ -1,7 +1,10 @@
 package com.kopps;
 
+import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
-import android.os.RemoteException;
+import android.content.ServiceConnection;
+import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,87 +14,100 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import org.altbeacon.beacon.Beacon;
-import org.altbeacon.beacon.BeaconConsumer;
-import org.altbeacon.beacon.BeaconManager;
-import org.altbeacon.beacon.BeaconParser;
-import org.altbeacon.beacon.RangeNotifier;
-import org.altbeacon.beacon.Region;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collection;
 
-public class BeaconAddActivity extends AppCompatActivity implements BeaconConsumer {
+public class BeaconAddActivity extends AppCompatActivity {
     protected static final String TAG = "BeaconAddActivity";
-    private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private ArrayList<Beacon> beaconList = new ArrayList<>();
+
+    private ArrayList<Beacon> findbeaconList = new ArrayList<>();
+    private BeaconServices mService;
+    private boolean mBound = false;
+
+    Runnable r = new thread();
+    Thread thread = new Thread(r);
+    Intent intent;
+
+    private ServiceConnection mConnection = new ServiceConnection() {
+        @Override
+        public void onServiceConnected(ComponentName className, IBinder service) {
+            BeaconServices.LocalBinder binder = (BeaconServices.LocalBinder) service;
+            mService = binder.getService();
+            mBound = true;
+        }
+
+        @Override
+        public void onServiceDisconnected(ComponentName arg0) {
+            mService = null;
+            mBound = false;
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-        beaconManager.getBeaconParsers().clear();
-        beaconManager.getBeaconParsers().add(
-                //new BeaconParser().setBeaconLayout("m:0-3=4c000215,i:4-19,i:20-21,i:22-23,p:24-24"));
-                new BeaconParser().setBeaconLayout("m:2-3=0215,i:4-19,i:20-21,i:22-23,p:24-24"));
+        setContentView(R.layout.activity_beaconadd);
 
-        // 앱이 실행되고(액티비티가 전환되어 왔을 때) beaconManager 서비스를 실행한다.
-        beaconManager.bind(this);
+        intent = new Intent(BeaconAddActivity.this, BeaconServices.class);
+        bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
+
+        Button button = (Button) findViewById(R.id.startbutton);
+
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mBound) {
+                    findbeaconList = mService.getBeaconList();
+                    Log.d(TAG, String.valueOf(findbeaconList));
+
+//                    thread = new Thread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            // runOnUiThread를 추가하고 그 안에 UI작업을 한다.
+//                            while (!Thread.interrupted()) {
+//                                try {
+//                                    Thread.sleep(1000);
+//                                    logToDisplay();
+//                                } catch (InterruptedException e) { }
+//                            }
+//                        }
+//                    });
+                    thread.start();
+                }
+            }
+        });
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    protected void onStop() {
+        if(mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
+        thread.interrupt();
+        super.onStop();
     }
 
     @Override
     protected void onDestroy() {
+        if(mBound) {
+            unbindService(mConnection);
+            mBound = false;
+        }
         super.onDestroy();
-        // 앱이 종료되었을때 beaconManager 서비스를 종료한다.
-        beaconManager.unbind(this);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(true);
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
-        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
-    }
-
-    // beaconManager 서비스가 실행되었을 때 자동적으로 실행된다.
-    @Override
-    public void onBeaconServiceConnect() {
-        beaconManager.setRangeNotifier(new RangeNotifier() {
-            @Override
-            public void didRangeBeaconsInRegion(Collection<Beacon> beacons, Region region) {
-                if (beacons.size() > 0) {
-                    beaconList.clear();
-//                    addbeaconList.clear();
-                    Log.d(TAG, "didRangeBeaconsInRegion called with beacon count:  " + beacons.size());
-                    for (Beacon beacon : beacons) {
-                        beaconList.add(beacon);
-                    }
-                    logToDisplay();
-                }
-            }
-        });
-        try {
-            beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
-        } catch (RemoteException e) {   }
     }
 
     private void logToDisplay() {
         final LinearLayout linearLayout = (LinearLayout) BeaconAddActivity.this.findViewById(R.id.linearlayout);
         runOnUiThread(new Runnable() {
             public void run() {
-                for (final Beacon beacon : beaconList) {
+                for (final Beacon beacon : findbeaconList) {
                     // 비콘들의 정보가 들어가는 레이아웃
                     LinearLayout beaconlayout = new LinearLayout(BeaconAddActivity.this);
 
@@ -135,6 +151,8 @@ public class BeaconAddActivity extends AppCompatActivity implements BeaconConsum
                     } else {
                         TextView textView = linearLayout.findViewWithTag("beacon"+beacon.getId2());
                         textView.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
+                        Log.d(TAG, "ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacon.getDistance());
+
                         textView.setGravity(Gravity.CENTER_VERTICAL);
                     }
 
@@ -153,5 +171,28 @@ public class BeaconAddActivity extends AppCompatActivity implements BeaconConsum
             }
         });
     }
+
+
+    class thread implements Runnable {
+
+        @Override
+        public void run() {
+            while (!Thread.currentThread().isInterrupted()) {
+                try {
+                    Thread.sleep(1000);
+                    logToDisplay();
+
+                } catch (InterruptedException e) {
+                    thread.interrupt();
+                    Log.d(TAG, "interrupt!!!!");
+                }
+            }
+        }
+    }
+
+
+
+
+
 }
 
