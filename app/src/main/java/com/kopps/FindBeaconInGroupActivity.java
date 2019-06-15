@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ import java.util.List;
 public class FindBeaconInGroupActivity extends AppCompatActivity {
     protected static final String TAG = "FindBeaconInGroup";
     private List<Beacon> findbeaconList = new ArrayList<>();
+    ArrayList<String> beaconList;
 
     private BeaconServices mService;
     private boolean mBound = false;
@@ -54,34 +56,39 @@ public class FindBeaconInGroupActivity extends AppCompatActivity {
         intent = new Intent(FindBeaconInGroupActivity.this, BeaconServices.class);
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
-        String path = getCacheDir().toString();
-        File directory = new File(path);
-        File[] files = directory.listFiles();
-        List<String> filesNameList = new ArrayList<>();
+        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        ArrayList<String> groupNameList = database.getResult("GROUPTABLE");
 
-        for (int i = 0; i < files.length; i++) {
-            filesNameList.add(files[i].getName());
-            Log.d(TAG, files[i].getName());
-        }
-
-        final Spinner spinner = (Spinner) findViewById(R.id.spinners);
-        ArrayAdapter arrayAdapter = new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, filesNameList);
-        spinner.setAdapter(arrayAdapter);
+        final Spinner spinner = (Spinner) findViewById(R.id.group);
+        spinner.setAdapter(new ArrayAdapter<>(getApplicationContext(), android.R.layout.simple_spinner_dropdown_item, groupNameList));
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast.makeText(getApplicationContext(), "끼야야야아아아아악." + mBound, Toast.LENGTH_LONG).show();
+                int items = spinner.getAdapter().getCount();
 
+                if(items > 0) {
+                    String selectgroup = spinner.getSelectedItem().toString();
+                    beaconList = database.getBeaconID1(selectgroup);
+                }
+
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+            }
+        });
+
+        Button button = (Button) findViewById(R.id.findbeacon);
+        button.setOnClickListener(new Button.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if(mBound) {
                     findbeaconList = mService.getBeaconList();
                     Log.d(TAG, String.valueOf(findbeaconList));
                     thread.start();
                 }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
             }
         });
     }
@@ -110,25 +117,53 @@ public class FindBeaconInGroupActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
-    class thread implements Runnable {
+    private void logToDisplay() {
+        runOnUiThread(new Runnable() {
+            TextView textView = (TextView) findViewById(R.id.beacondata);
+            @Override
+            public void run() {
+                for (Beacon beacon : findbeaconList) {
+                    for(String beaconid1 : beaconList) {
 
+                        Log.d(TAG, beacon.getId1().toString() + " | " + beaconid1);
+
+                        if(beacon.getId1().toString().equals(beaconid1)) {
+                            String beacondistance = String.valueOf(beacon.getDistance());
+                            textView.setText("ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
+                            Log.d(TAG, "ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+    class thread implements Runnable {
         @Override
         public void run() {
             // runOnUiThread를 추가하고 그 안에 UI작업을 한다.
             while (!Thread.currentThread().isInterrupted()) {
                 try {
                     Thread.sleep(1000);
-                    runOnUiThread(new Runnable() {
-                        TextView textView = (TextView) findViewById(R.id.beacondata);
-                        @Override
-                        public void run() {
-                            for (Beacon beacon : findbeaconList) {
-                                String beacondistance = String.valueOf(beacon.getDistance());
-                                textView.setText("ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
-                                Log.d(TAG, "ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
-                            }
-                        }
-                    });
+                    logToDisplay();
+
+//                    runOnUiThread(new Runnable() {
+//                        TextView textView = (TextView) findViewById(R.id.beacondata);
+//                        @Override
+//                        public void run() {
+//                            for (Beacon beacon : findbeaconList) {
+//                                for(String beaconid1 : beaconList) {
+//                                    if(beacon.getId1().equals(beaconid1)) {
+//                                        String beacondistance = String.valueOf(beacon.getDistance());
+//                                        textView.setText("ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
+//                                        Log.d(TAG, "ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacondistance);
+//                                    }
+//                                }
+//                            }
+//                        }
+//                    });
+
+
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                     thread.interrupt();

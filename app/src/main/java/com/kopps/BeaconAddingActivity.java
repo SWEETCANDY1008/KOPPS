@@ -39,9 +39,11 @@ public class BeaconAddingActivity extends AppCompatActivity {
 //            Log.d(TAG, files[i].getName());
 //        }
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinners);
+        final Spinner spinner = (Spinner) findViewById(R.id.spinners);
         ArrayAdapter arrayAdapter = new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_spinner_dropdown_item, groupNameList);
         spinner.setAdapter(arrayAdapter);
+
+
 
         final EditText editText = (EditText) findViewById(R.id.beaconnickname);
 
@@ -56,22 +58,25 @@ public class BeaconAddingActivity extends AppCompatActivity {
                 Log.d(TAG, "BZ" + beacon_test.getDistance());
 
                 String nickname = editText.getText().toString();
+                String id1 = beacon_test.getId1().toString();
+                String id2 = beacon_test.getId2().toString();
+                String id3 = beacon_test.getId3().toString();
+                double latitude = 0.001;
+                double longitude = 0.001;
+                int rssi = beacon_test.getRssi();
 
-                if(nickname.replace(" ", "").equals("")) {
-                    Spinner spinner = (Spinner) findViewById(R.id.spinners);
-                    int items = spinner.getAdapter().getCount();
-
-                    if (items > 0) {
-                        String selectgroup = spinner.getSelectedItem().toString();
-                        String id1 = beacon_test.getId1().toString();
-                        String id2 = beacon_test.getId2().toString();
-                        String id3 = beacon_test.getId3().toString();
-
-                        database.insert(nickname, selectgroup, id1, id2, id3);
-
-                        finish();
-                    }
+                // 닉네임 띄어쓰기 방지
+                if(!nickname.replace(" ", "").equals("")) {
+                    String selectgroup = spinner.getSelectedItem().toString();
+                    database.insert(nickname, selectgroup, id1, id2, id3);
+                    database.insert(nickname, selectgroup, id1, id2, id3, latitude, longitude, rssi);
+                    Toast.makeText(getApplicationContext(), selectgroup + "에 " + nickname +"(이)가 추가되었습니다.", Toast.LENGTH_SHORT).show();
                 }
+
+                // 비콘들의 닉네임이 리스트 형태로 담겨져서 출력됨을 확인
+                Log.d(TAG, String.valueOf(database.getBeacon("test")));
+
+                finish();
             }
         });
     }

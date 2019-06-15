@@ -7,6 +7,8 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class GroupChangeActivity extends AppCompatActivity {
@@ -32,14 +34,14 @@ public class GroupChangeActivity extends AppCompatActivity {
                 EditText edittext = (EditText) findViewById(R.id.changegroupname);
                 String changename = edittext.getText().toString();
 
-                if(changename.replace(" ", "").equals("")) {
+                if(!changename.replace(" ", "").equals("")) {
                     Spinner spinner = (Spinner) findViewById(R.id.spinners);
                     int items = spinner.getAdapter().getCount();
 
                     if(items > 0) {
                         String selectchangegroup = spinner.getSelectedItem().toString();
                         database.update(selectchangegroup, changename);
-
+                        Toast.makeText(getApplicationContext(), selectchangegroup + "이 " + changename +"으로 수정됐습니다.", Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 }

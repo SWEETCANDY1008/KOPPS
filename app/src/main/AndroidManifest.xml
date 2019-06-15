@@ -59,6 +59,18 @@
             android:name=".BeaconAddingActivity"
             android:label="@string/app_name"></activity>
         <activity
+            android:name=".BeaconChangeActivity"
+            android:label="@string/app_name"></activity>
+        <activity
+            android:name=".BeaconDeleteActivity"
+            android:label="@string/app_name"></activity>
+
+
+
+
+
+
+        <activity
             android:name=".FindBeaconInGroupActivity"
             android:label="@string/app_name"></activity>
 

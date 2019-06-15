@@ -6,6 +6,8 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 
 public class GroupDeleteActivity extends AppCompatActivity {
@@ -34,7 +36,7 @@ public class GroupDeleteActivity extends AppCompatActivity {
                 if(items > 0) {
                     String selectdeletegroup = spinner.getSelectedItem().toString();
                     database.delete(selectdeletegroup);
-
+                    Toast.makeText(getApplicationContext(), selectdeletegroup + "가 삭제됐습니다.", Toast.LENGTH_SHORT).show();
                     finish();
                 }
             }
