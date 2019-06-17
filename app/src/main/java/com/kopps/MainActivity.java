@@ -116,11 +116,6 @@ public class MainActivity extends AppCompatActivity {
         this.startActivity(myIntent);
     }
 
-//    public void onRangingClicked(View view) {
-//        Intent myIntent = new Intent(this, RangingActivity.class);
-//        this.startActivity(myIntent);
-//    }
-
     public void onFindBeaconInGroupClicked(View view) {
         Intent myIntent = new Intent(this, FindBeaconInGroupActivity.class);
         this.startActivity(myIntent);

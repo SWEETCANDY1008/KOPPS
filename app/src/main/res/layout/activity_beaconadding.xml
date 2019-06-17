@@ -16,12 +16,23 @@
         android:id="@+id/spinners">
     </Spinner>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="비콘 닉네임"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/beaconnickname"/>
+
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="비콘을 그룹에 추가"
-        android:onClick="onBeaconAddGroupClicked"/>
+        android:id="@+id/addbeacon"/>
+        <!--android:onClick="onBeaconAddGroupClicked"-->
 
 
 

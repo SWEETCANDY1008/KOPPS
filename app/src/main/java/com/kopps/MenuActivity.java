@@ -35,6 +35,15 @@ public class MenuActivity extends AppCompatActivity {
         this.startActivity(myIntent);
     }
 
+    public void onBeaconChangeClicked(View view) {
+        Intent myIntent = new Intent(this, BeaconChangeActivity.class);
+        this.startActivity(myIntent);
+    }
+
+    public void onBeaconDeleteClicked(View view) {
+        Intent myIntent = new Intent(this, BeaconDeleteActivity.class);
+        this.startActivity(myIntent);
+    }
 
 
 
