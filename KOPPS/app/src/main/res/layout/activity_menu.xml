@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="horizontal"
+    tools:context=".MenuActivity"
+    android:id="@+id/linearlayout">
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/groupadd"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onGroupAddClicked"
+            android:text="그룹 생성" />
+
+        <Button
+            android:id="@+id/groupchange"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onGroupChangeClicked"
+            android:text="그룹 수정" />
+
+        <Button
+            android:id="@+id/groupdelete"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onGroupDeleteClicked"
+            android:text="그룹 삭제" />
+
+    </LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/beaconadd"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onBeaconAddClicked"
+            android:text="비콘 추가" />
+
+        <Button
+            android:id="@+id/beaconchange"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onBeaconChangeClicked"
+            android:text="비콘 수정" />
+
+        <Button
+            android:id="@+id/beacondelete"
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:onClick="onBeaconDeleteClicked"
+            android:text="비콘 삭제" />
+
+    </LinearLayout>
+</LinearLayout>
