@@ -1,13 +1,25 @@
 package com.kopps;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+<<<<<<< HEAD
+=======
+import java.util.Scanner;
+
+>>>>>>> master
 import android.os.Bundle;
 import android.os.RemoteException;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+<<<<<<< HEAD
 import android.widget.TextView;
+=======
+>>>>>>> master
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
@@ -19,7 +31,11 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
     protected static final String TAG = "RangingActivity";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
     private List<Beacon> beaconList = new ArrayList<>();
+<<<<<<< HEAD
     CachingBeacon cachingBeacon;
+=======
+    private List<String[]> stringbeacon = new ArrayList<String[]>();
+>>>>>>> master
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +48,36 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
         // 앱이 실행되고(액티비티가 전환되어 왔을 때) beaconManager 서비스를 실행한다.
         beaconManager.bind(this);
+
+        String filename = "internal_cache_data";        // cache에 저장될 파일 이름
+
+        try {
+            File cacheDir = getCacheDir();
+            File cacheFile = new File(cacheDir.getAbsolutePath(), filename);
+            FileInputStream inputStream = new FileInputStream(cacheFile.getAbsolutePath());
+
+            Scanner s = new Scanner(inputStream);
+            String text="";
+            while(s.hasNext()){
+                text+=s.nextLine();
+
+                Log.d(TAG, text);
+            }
+
+            inputStream.close();
+//                            Log.d(TAG, text);
+            Log.d(TAG, String.valueOf(text.length()));
+        } catch(FileNotFoundException fnfe) {
+            fnfe.printStackTrace();
+        } catch(IOException ie) {
+            ie.printStackTrace();
+        }
+
+
+
+
+
+
     }
 
     @Override
@@ -84,16 +130,20 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
             private void logToDisplay() {
                 runOnUiThread(new Runnable() {
                     public void run() {
-                        TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
+//                        TextView textview = (TextView) RangingActivity.this.findViewById(R.id.rangingText);
                         String lists = "";
                         for (Beacon beacon : beaconList) {
+<<<<<<< HEAD
 
                             lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
+=======
+>>>>>>> master
 
-//                    textview.append("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
+                            lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
                             Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
                             Log.d(TAG, beacon.toString());
                         }
+<<<<<<< HEAD
                         textview.setText(lists + "\n" + "===================================================\n");
 
 
@@ -138,6 +188,13 @@ public class RangingActivity extends AppCompatActivity implements BeaconConsumer
 
 
 //                textview.append("===================================================\n");
+=======
+
+//                        textview.setText(lists + "\n" + "===================================================\n");
+
+
+
+>>>>>>> master
                     }
 
 
