@@ -43,7 +43,11 @@ public class GroupChangeActivity extends AppCompatActivity {
                         database.update(selectchangegroup, changename);
                         Toast.makeText(getApplicationContext(), selectchangegroup + "이 " + changename +"으로 수정됐습니다.", Toast.LENGTH_SHORT).show();
                         finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "바꿀 그룹이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
                     }
+                } else {
+                    Toast.makeText(getApplicationContext(), "그룹 이름을 입력해 주세요", Toast.LENGTH_LONG).show();
                 }
             }
         });

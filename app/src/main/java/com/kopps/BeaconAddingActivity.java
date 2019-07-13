@@ -14,13 +14,14 @@ import org.altbeacon.beacon.Beacon;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class BeaconAddingActivity extends AppCompatActivity {
     protected static final String TAG = "BeaconAddingActivity";
     private Beacon beacon_test;
-
+    ArrayList<String> nicknamelists = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,7 @@ public class BeaconAddingActivity extends AppCompatActivity {
                 Log.d(TAG, "BZ" + beacon_test.getDistance());
 
                 String nickname = editText.getText().toString();
+
                 String id1 = beacon_test.getId1().toString();
                 String id2 = beacon_test.getId2().toString();
                 String id3 = beacon_test.getId3().toString();
@@ -67,16 +69,32 @@ public class BeaconAddingActivity extends AppCompatActivity {
 
                 // 닉네임 띄어쓰기 방지
                 if(!nickname.replace(" ", "").equals("")) {
-                    String selectgroup = spinner.getSelectedItem().toString();
-                    database.insert(nickname, selectgroup, id1, id2, id3);
-                    database.insert(nickname, selectgroup, id1, id2, id3, latitude, longitude, rssi);
-                    Toast.makeText(getApplicationContext(), selectgroup + "에 " + nickname +"(이)가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                    int items = spinner.getAdapter().getCount();
+
+                    if(items > 0) {
+                        String selectgroup = spinner.getSelectedItem().toString();
+                        nicknamelists = database.getBeaconNICKNAME("selectgroup");
+                        boolean exists = nicknamelists.contains(nickname);
+
+                        Log.d(TAG, "존재하느냐 이놈" + exists);
+                        if(!exists) {
+                            database.insert(nickname, selectgroup, id1, id2, id3);
+                            database.insert(nickname, selectgroup, id1, id2, id3, latitude, longitude, rssi);
+                            Toast.makeText(getApplicationContext(), selectgroup + "에 " + nickname +"(이)가 추가되었습니다.", Toast.LENGTH_SHORT).show();
+                            finish();
+                        } else if(exists) {
+                            Toast.makeText(getApplicationContext(), nickname + "은 이미 존재합니다.", Toast.LENGTH_SHORT).show();
+                        }
+
+                    } else {
+                        Toast.makeText(getApplicationContext(), "그룹이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "비콘의 닉네임을 입력해 주세요", Toast.LENGTH_LONG).show();
                 }
 
                 // 비콘들의 닉네임이 리스트 형태로 담겨져서 출력됨을 확인
                 Log.d(TAG, String.valueOf(database.getBeacon("test")));
-
-                finish();
             }
         });
     }

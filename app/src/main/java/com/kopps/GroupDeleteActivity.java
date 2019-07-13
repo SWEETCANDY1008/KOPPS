@@ -38,6 +38,8 @@ public class GroupDeleteActivity extends AppCompatActivity {
                     database.delete(selectdeletegroup);
                     Toast.makeText(getApplicationContext(), selectdeletegroup + "가 삭제됐습니다.", Toast.LENGTH_SHORT).show();
                     finish();
+                } else {
+                    Toast.makeText(getApplicationContext(), "삭제할 그룹이 없습니다.", Toast.LENGTH_LONG).show();
                 }
             }
         });

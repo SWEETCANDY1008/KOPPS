@@ -37,15 +37,16 @@ public class GroupAddActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "그룹 이름을 입력해 주세요", Toast.LENGTH_LONG).show();
                 } else if(exists) {
                     Toast.makeText(getApplicationContext(), "그룹이 이미 존재합니다.", Toast.LENGTH_LONG).show();
+                    finish();
                 } else if(!exists){
                     database.insert(groupname);
                     Toast.makeText(getApplicationContext(), "그룹이 추가되었습니다.", Toast.LENGTH_LONG).show();
+                    finish();
                 } else {
                     Toast.makeText(getApplicationContext(), "오류가 발생하였습니다.", Toast.LENGTH_LONG).show();
+                    finish();
                 }
                 Log.d(TAG, String.valueOf(database.getResult("GROUPTABLE")));
-
-                finish();
             }
         });
     }

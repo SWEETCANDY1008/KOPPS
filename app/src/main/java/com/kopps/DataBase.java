@@ -17,7 +17,7 @@ public class DataBase extends SQLiteOpenHelper {
     // DB생성 및 테이블 생성시 호출되는 메소드
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname text PRIMARY KEY);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname TEXT PRIMARY KEY);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONTABLE (nickname TEXT, groupname TEXT, id1 TEXT, id2 TEXT, id3 TEXT, PRIMARY KEY(nickname, groupname));");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONREFERENCETABLE (nickname_groupname TEXT PRIMARY KEY, id1 TEXT, id2 TEXT, id3 TEXT, latitude REAL, longitude REAL, rssi INTEGER, time NUMERIC);");
     }
@@ -177,4 +177,29 @@ public class DataBase extends SQLiteOpenHelper {
         return datalist;
     }
 
+    public ArrayList getBeaconNICKNAME(String groupname) {
+        ArrayList<String> datalist = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalist.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE groupname='" + groupname + "'", null);
+        while (cursor.moveToNext()) {
+            datalist.add(cursor.getString(0));
+        }
+        return datalist;
+    }
+
+    public ArrayList findBeaconNICKNAME(String id1) {
+        ArrayList<String> datalist = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalist.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE id1='" + id1 + "'", null);
+        while (cursor.moveToNext()) {
+            datalist.add(cursor.getString(0));
+        }
+        return datalist;
+    }
 }

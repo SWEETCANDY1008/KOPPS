@@ -14,6 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import org.altbeacon.beacon.Beacon;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -25,9 +27,14 @@ public class BeaconAddActivity extends AppCompatActivity {
     private BeaconServices mService;
     private boolean mBound = false;
 
+    private boolean isStart = true;
+
+
     Runnable r = new thread();
-    Thread thread = new Thread(r);
+    Thread thread;
     Intent intent;
+
+
 
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
@@ -57,23 +64,22 @@ public class BeaconAddActivity extends AppCompatActivity {
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(mBound) {
-                    findbeaconList = mService.getBeaconList();
-                    Log.d(TAG, String.valueOf(findbeaconList));
-
-//                    thread = new Thread(new Runnable() {
-//                        @Override
-//                        public void run() {
-//                            // runOnUiThread를 추가하고 그 안에 UI작업을 한다.
-//                            while (!Thread.interrupted()) {
-//                                try {
-//                                    Thread.sleep(1000);
-//                                    logToDisplay();
-//                                } catch (InterruptedException e) { }
-//                            }
-//                        }
-//                    });
+                if(isStart) {
+                    thread = new Thread(r);
+                    if(mBound) {
+                        findbeaconList = mService.getBeaconList();
+                    }
                     thread.start();
+                    isStart = false;
+                    Toast.makeText(getApplicationContext(), "비콘찾기를 시작합니다.",Toast.LENGTH_SHORT).show();
+                } else {
+                    if(mBound) {
+                        unbindService(mConnection);
+                        mBound = false;
+                    }
+                    thread.interrupt();
+                    isStart = true;
+                    Toast.makeText(getApplicationContext(), "비콘찾기를 종료합니다.",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -90,7 +96,9 @@ public class BeaconAddActivity extends AppCompatActivity {
             unbindService(mConnection);
             mBound = false;
         }
-        thread.interrupt();
+        if(thread != null && thread.isAlive()) {
+            thread.interrupt();
+        }
         super.onStop();
     }
 
@@ -137,20 +145,20 @@ public class BeaconAddActivity extends AppCompatActivity {
                     pm.setMargins(10, 10, 0, 10);
                     pm.gravity = Gravity.CENTER_VERTICAL;
 
-
-
                     // 각 비콘별로 레이아웃을 생성할 때 기존에 존재하는지 확인하기 위함
                     if(linearLayout.findViewWithTag("beacon"+beacon.getId2()) == null || linearLayout.findViewWithTag("beacon"+beacon.getId2()).equals(null)) {
+                        textviews.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
                         button.setLayoutParams(pm2);
                         textviews.setLayoutParams(pm);
-                        textviews.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
                         beaconlayout.addView(textviews);    // 각 비콘별 레이아웃에 텍스트뷰를 추가
-                        // 버튼 추가란
+                        // 버튼 추가
                         beaconlayout.addView(button);
+
                         linearLayout.addView(beaconlayout);
                     } else {
                         TextView textView = linearLayout.findViewWithTag("beacon"+beacon.getId2());
                         textView.setText("major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance()) + " meters." + beacon.getRssi() + "\n");
+                        textviews.setLayoutParams(pm);
                         Log.d(TAG, "ID1 : " + beacon.getId1() + " ID2 : " + beacon.getId2() + " ID3 : " + beacon.getId3() + " DISTANCE : " + beacon.getDistance());
 
                         textView.setGravity(Gravity.CENTER_VERTICAL);

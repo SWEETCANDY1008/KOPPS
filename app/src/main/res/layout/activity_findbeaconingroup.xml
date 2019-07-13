@@ -29,7 +29,8 @@
         android:layout_weight="1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/beacondatalayout">
 
         <TextView
             android:layout_weight="0.25"
@@ -44,17 +45,5 @@
             android:layout_height="wrap_content"
             android:id="@+id/beacondata"/>
 
-
     </LinearLayout>
-
-
-
-    <Button
-        android:layout_weight="0.25"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="그룹 수정" />
-
-
-
 </LinearLayout>

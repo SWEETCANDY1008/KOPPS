@@ -53,6 +53,22 @@ public class BeaconDeleteActivity extends AppCompatActivity {
                 database.delete(groupname, nickname);
                 Toast.makeText(getApplicationContext(), groupname + "에서 " + nickname +"(이)가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                 finish();
+
+
+//                int items = spinner.getAdapter().getCount();
+//
+//                if(items > 0) {
+//                    String selectdeletegroup = spinner.getSelectedItem().toString();
+//                    database.delete(selectdeletegroup);
+//                    Toast.makeText(getApplicationContext(), selectdeletegroup + "가 삭제됐습니다.", Toast.LENGTH_SHORT).show();
+//                    finish();
+//                } else {
+//                    Toast.makeText(getApplicationContext(), "삭제할 그룹이 없습니다.", Toast.LENGTH_LONG).show();
+//                }
+
+
+
+
             }
         });
     }

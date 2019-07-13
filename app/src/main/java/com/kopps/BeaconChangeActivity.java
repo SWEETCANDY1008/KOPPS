@@ -50,13 +50,25 @@ public class BeaconChangeActivity extends AppCompatActivity {
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String groupname = groupspinner.getSelectedItem().toString();
-                String nickname = beaconspinner.getSelectedItem().toString();
-                String changegroupname = groupchangespinner.getSelectedItem().toString();
+                int groupspinner_items = groupspinner.getAdapter().getCount();
+                int beaconspinner_items = beaconspinner.getAdapter().getCount();
 
-                database.update(groupname, nickname, changegroupname);
-                Toast.makeText(getApplicationContext(), groupname + "에서 " + nickname +"(이)가 " + changegroupname + "으로 수정됐습니다.", Toast.LENGTH_SHORT).show();
-                finish();
+
+                if(beaconspinner_items > 0) {
+                    if(groupspinner_items > 0) {
+                        String groupname = groupspinner.getSelectedItem().toString();
+                        String nickname = beaconspinner.getSelectedItem().toString();
+                        String changegroupname = groupchangespinner.getSelectedItem().toString();
+
+                        database.update(groupname, nickname, changegroupname);
+                        Toast.makeText(getApplicationContext(), groupname + "에서 " + nickname +"(이)가 " + changegroupname + "으로 수정됐습니다.", Toast.LENGTH_SHORT).show();
+                        finish();
+                    } else {
+                        Toast.makeText(getApplicationContext(), "그룹이 존재하지 않습니다..", Toast.LENGTH_SHORT).show();
+                    }
+                } else {
+                    Toast.makeText(getApplicationContext(), "변경할 비콘이 존재하지 않습니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
