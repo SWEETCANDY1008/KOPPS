@@ -6,17 +6,14 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
-
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
-
 import java.util.ArrayList;
 import java.util.Collection;
-
 
 public class BeaconServices extends Service implements BeaconConsumer {
     protected static final String TAG = "BeaconServices";
@@ -41,8 +38,6 @@ public class BeaconServices extends Service implements BeaconConsumer {
         return super.onUnbind(intent);
     }
 
-
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -61,8 +56,6 @@ public class BeaconServices extends Service implements BeaconConsumer {
         // 앱이 종료되었을때 beaconManager 서비스를 종료한다.
         beaconManager.unbind(this);
     }
-
-
 
     @Override
     public void onBeaconServiceConnect() {

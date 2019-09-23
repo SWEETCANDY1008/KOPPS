@@ -4,8 +4,10 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DataBase extends SQLiteOpenHelper {
 
@@ -19,7 +21,7 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname TEXT PRIMARY KEY);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONTABLE (nickname TEXT, groupname TEXT, id1 TEXT, id2 TEXT, id3 TEXT, PRIMARY KEY(nickname, groupname));");
-        db.execSQL("CREATE TABLE IF NOT EXISTS BEACONREFERENCETABLE (nickname_groupname TEXT PRIMARY KEY, id1 TEXT, id2 TEXT, id3 TEXT, latitude REAL, longitude REAL, rssi INTEGER, time NUMERIC);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance INTEGER, time NUMERIC);");
     }
 
     // DB 업그레이드를 위한 메소드
@@ -66,11 +68,9 @@ public class DataBase extends SQLiteOpenHelper {
         db.close();
     }
 
-    public void update(String groupname, String nickname, String changegroupname) {
+    public void update(String groupname, String nickname, String changenickname) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("UPDATE BEACONTABLE SET groupname='" + changegroupname + "' WHERE groupname='" + groupname + "' AND nickname='" + nickname + "';");
-        db.execSQL("UPDATE BEACONREFERENCETABLE SET nickname_groupname='" + nickname+"_"+changegroupname + "' WHERE nickname_groupname='" + nickname+"_"+groupname + "';");
-
+        db.execSQL("UPDATE BEACONTABLE SET nickname='" + changenickname + "' WHERE groupname='" + groupname + "' AND nickname='" + nickname + "';");
         db.close();
     }
 
@@ -78,63 +78,19 @@ public class DataBase extends SQLiteOpenHelper {
         SQLiteDatabase db = getWritableDatabase();
         // 입력한 항목과 일치하는 행 삭제
         db.execSQL("DELETE FROM BEACONTABLE WHERE groupname='" + groupname + "' AND nickname='" + nickname + "' ;");
-        db.execSQL("DELETE FROM BEACONREFERENCETABLE WHERE nickname_groupname='" + nickname+"_"+groupname + "';");
         db.close();
     }
 
 
-
-
-
-
-    // <---------------------------------------------------->
-
-    // BEACONREFERENCETABLE
-    // insert BEACONREFERENCETABLE
-    // BEACONREFERENCETABLE에 각 정보를 추가한다.
-    public void insert(String nickname, String groupname, String id1, String id2, String id3, double latitude, double longitude, int rssi) {
-        String nickname_groupname = nickname + "_" + groupname;
+// LOCATION TABLE
+    public void insert(String nickname, double latitude, double longitude, int distance) {
         SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO BEACONREFERENCETABLE(nickname_groupname, id1, id2, id3, latitude, longitude, rssi, time) VALUES('" + nickname_groupname + "', '" + id1 + "', '" + id2 + "', '" + id3 + "', '" + latitude + "', '" + longitude + "', '" + rssi + "', datetime('now','localtime'));");
+        db.execSQL("INSERT INTO LOCATION(nickname, latitude, longitude, distance, time) VALUES('" + nickname + "', '" + latitude + "', '" + longitude + "', '" + distance + "', datetime('now','localtime'));");
         db.close();
     }
 
 
-//    public void update(String nickname, String changenickname) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        db.execSQL("UPDATE BEACONTABLE SET nickname=" + changenickname + " WHERE nickname='" + nickname + "';");
-////        db.execSQL("INSERT INTO BEACONTABLE VALUES('" + nickname + "', '" + groupname + "', '" + id1 + "', '" + id2 + "', '" + id3 + "');");
-//        db.close();
-//    }
-
-//    public void update(String nickname_groupname, String id1, String id2, String id3, double latitude, double longitude, int rssi) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        db.execSQL("UPDATE MONEYBOOK SET price=" + price + " WHERE item='" + item + "';");
-////        db.execSQL("INSERT INTO BEACONTABLE VALUES('" + nickname_groupname + "', '" + id1 + "', '" + id2 + "', '" + id3 + "', '" + latitude + "', '" + longitude + "', '" + rssi + "', datetime('now','localtime'));");
-//        db.close();
-//    }
-
-//    public void update(String item, int price) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        // 입력한 항목과 일치하는 행의 가격 정보 수정
-//        db.execSQL("UPDATE MONEYBOOK SET price=" + price + " WHERE item='" + item + "';");
-//        db.close();
-//    }
-
-//    public void delete(String groupname) {
-//        SQLiteDatabase db = getWritableDatabase();
-//        // 입력한 항목과 일치하는 행 삭제
-//        db.execSQL("DELETE FROM GROUPTABLE WHERE groupname='" + groupname + "';");
-//        db.execSQL("DELETE FROM BEACONTABLE WHERE groupname='" + groupname + "';");
-////        db.execSQL("DELETE FROM MONEYBOOK WHERE item='" + item + "';");
-//        db.close();
-//    }
-
-
-
-
-
-
+//    LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, id1 TEXT, id2 TEXT, id3 TEXT, latitude REAL, longitude REAL, rssi INTEGER, time NUMERIC);")
 
 
     // 원하는 테이블의 모든 정보를 읽어옴
@@ -148,8 +104,28 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(0));
         }
+
         return datalist;
     }
+
+
+    public ArrayList getGroup() {
+        ArrayList<String> datalist = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalist.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT * FROM GROUPTABLE", null);
+        if(cursor != null && cursor.getCount() != 0) {
+            while (cursor.moveToNext()) {
+                datalist.add(cursor.getString(0));
+            }
+        } else {
+            datalist = null;
+        }
+        return datalist;
+    }
+
 
     public ArrayList getBeacon(String groupname) {
         ArrayList<String> datalist = new ArrayList<>();
@@ -161,6 +137,7 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(0));
         }
+
         return datalist;
     }
 
@@ -174,6 +151,7 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(2));
         }
+
         return datalist;
     }
 
@@ -187,6 +165,7 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(0));
         }
+
         return datalist;
     }
 
@@ -200,6 +179,43 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(0));
         }
+
         return datalist;
     }
+
+    public ArrayList getthreenearbeacongps(String id1, String id2, String id3) {
+        ArrayList<Double[]> datalists = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalists.clear();
+
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT DISTINCT latitude, longitude FROM LOCATION WHERE id1='" + id1 + "' AND id2='" + id2 + "' AND id3='" + id3 + "' ORDER BY time DESC", null);
+        Cursor cursor_rssi = db.rawQuery("SELECT rssi FROM LOCATION WHERE id1='" + id1 + "' AND id2='" + id2 + "' AND id3='" + id3 + "' ORDER BY time DESC", null);
+
+        if(cursor != null && cursor.getCount() != 0) {
+            while (cursor.moveToNext() && cursor_rssi.moveToNext()) {
+                Double lati = cursor.getDouble(0);
+                Double longs = cursor.getDouble(1);
+                Double rssi = cursor_rssi.getDouble(0);
+
+                Double[] test = {lati, longs, rssi};
+                datalists.add(test);
+
+                if(datalists.size() == 3) {
+                    break;
+                }
+            }
+        } else {
+            datalists = null;
+        }
+
+        Log.d("test", datalists.toString());
+        return datalists;
+    }
+
+
+
+
+
 }

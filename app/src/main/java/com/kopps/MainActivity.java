@@ -111,18 +111,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // 버튼이 클릭되면 각 Activity로 화면을 넘겨줌
-    public void onMenuClicked(View view) {
-        Intent myIntent = new Intent(this, MenuActivity.class);
+    public void GroupClicked(View view) {
+        Intent myIntent = new Intent(this, GroupActivity.class);
         this.startActivity(myIntent);
     }
 
-    public void onFindBeaconInGroupClicked(View view) {
-        Intent myIntent = new Intent(this, FindBeaconInGroupActivity.class);
-        this.startActivity(myIntent);
-    }
-
-    public void onMapClicked(View view) {
-        Intent myIntent = new Intent(this, MapsActivity.class);
+    public void SettingClicked(View view) {
+        Intent myIntent = new Intent(this, SettingActivity.class);
         this.startActivity(myIntent);
     }
 }

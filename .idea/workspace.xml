@@ -83,44 +83,54 @@
     <bookmark url="file://$PROJECT_DIR$/app/build.gradle" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="db0ba3ca-5588-42f5-9a91-58b51778dd24" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.1.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconChangeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconChangeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconDeleteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconDeleteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconInGroupActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconInGroupActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupAddActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupAddActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupChangeActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupChangeActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupDeleteActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupDeleteActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_findbeaconingroup.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_findbeaconingroup.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" afterDir="false" />
-    </list>
+    <list default="true" id="db0ba3ca-5588-42f5-9a91-58b51778dd24" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="isMigrated" value="true" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="ce091609a2e73b3604" />
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/app">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="KOPPS" type="f1a62948:ProjectNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="KOPPS" type="f1a62948:ProjectNode" />
+                <item name="KOPPS" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="KOPPS" type="f1a62948:ProjectNode" />
+                <item name="KOPPS" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="KOPPS" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="KOPPS" type="f1a62948:ProjectNode" />
+                <item name="app" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
               </path>
             </expand>
             <select />
@@ -134,11 +144,66 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="379" column="23" lean-forward="true" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
+              <folding>
+                <element signature="e#3577#5156#0" expanded="true" />
+                <element signature="e#5155#5156#0" expanded="true" />
+                <element signature="e#6058#6435#0" expanded="true" />
+                <element signature="e#6434#6435#0" expanded="true" />
+                <element signature="e#6473#9998#0" expanded="true" />
+                <element signature="e#9997#9998#0" expanded="true" />
+                <element signature="e#9244#11843#0" expanded="true" />
+                <element signature="e#11842#11843#0" expanded="true" />
+                <element signature="e#13725#14573#0" expanded="true" />
+                <element signature="e#14572#14573#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="87" column="170" selection-start-line="87" selection-start-column="170" selection-end-line="87" selection-end-column="170" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconInGroupActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="314">
-              <caret line="229" column="66" selection-start-line="229" selection-start-column="66" selection-end-line="229" selection-end-column="66" />
+            <state relative-caret-position="2768">
+              <caret line="355" column="36" lean-forward="true" selection-start-line="355" selection-start-column="36" selection-end-line="355" selection-end-column="36" />
+              <folding>
+                <element signature="e#4192#5644#0" expanded="true" />
+                <element signature="e#5643#5644#0" expanded="true" />
+                <element signature="e#14658#15245#0" expanded="true" />
+                <element signature="e#15244#15245#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beacon.xml">
+          <provider editor-type-id="android-designer2" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="513">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="39" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2508">
+              <caret line="152" column="66" selection-start-line="152" selection-start-column="66" selection-end-line="152" selection-end-column="66" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -147,10 +212,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconServices.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2432">
-              <caret line="148" column="85" selection-start-line="148" selection-start-column="85" selection-end-line="148" selection-end-column="85" />
+            <state relative-caret-position="703">
+              <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -164,68 +229,54 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin File" />
-        <option value="Class" />
-        <option value="layoutResourceFile" />
         <option value="resourceFile" />
+        <option value="layoutResourceFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>addMarker</find>
-      <find>radius</find>
-      <find>id2</find>
-      <find>getcurrent</find>
-      <find>move</find>
-      <find>onlocationchanged</find>
-      <find>mLastKnownLocation</find>
-      <find>addcircle</find>
-      <find>LatLng</find>
-      <find>internal_cache_data</find>
-      <find>circle</find>
-      <find>Log</find>
-      <find>context</find>
-      <find>get</find>
-      <find>getcach</find>
-      <find>getcachedir</find>
-      <find>onAddGroupClicked</find>
-      <find>RegisterActivity</find>
-      <find>this</find>
-      <find>onBeaconServiceConnect</find>
-      <find>bindService</find>
-      <find>getService()</find>
-      <find>beaconList</find>
-      <find>onStop</find>
-      <find>]</find>
-      <find>latitue</find>
-      <find>beacondata</find>
       <find>findbeaconList</find>
       <find>thread</find>
       <find>noti_id</find>
+      <find>logToDisplay</find>
+      <find>ogToDisplay</find>
+      <find>beaconlist</find>
+      <find>data</find>
+      <find>Latitude</find>
+      <find>beacon_test</find>
+      <find>clear</find>
+      <find>gps_test.clear()</find>
+      <find>insert</find>
+      <find>getnearbeacongps</find>
+      <find>gps |</find>
+      <find>database.insert(beacon.getId1().toString(), beacon.getId2().toString(), beacon.getId3().toString(), latis, longs, beacon.getRssi());</find>
+      <find>gps_test</find>
+      <find>BEACONREFERENCETABLE</find>
+      <find>alramNotification</find>
+      <find>LOCATION</find>
+      <find>extra</find>
+      <find>group_name</find>
+      <find>database</find>
+      <find>onBeaconServiceConnect</find>
+      <find>BEACONTABLE</find>
+      <find>이건 거리입니다</find>
+      <find>beacon</find>
+      <find>test</find>
+      <find>lm</find>
+      <find>mLocationListener</find>
+      <find>rssi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconReferenceApplication.java" />
-        <option value="$PROJECT_DIR$/app/build/generated/source/buildConfig/debug/com/kopps/BuildConfig.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_checking.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/ChechingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/CheckingActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/GPSListener.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_ranging.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/splash_background.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/styles.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/drawable/background_splash.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/VerifyCheck.java" />
-        <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/res/values/colors.xml" />
         <option value="$PROJECT_DIR$/app/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/AddActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_addbeacon.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml" />
@@ -237,14 +288,10 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/CachingBeacon.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/RangingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_register.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadd.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconServices.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_groupchange.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_groupadd.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_groupdelete.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadding.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MenuActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beaconchange.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beacondelete.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupAddActivity.java" />
@@ -253,20 +300,39 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconDeleteActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconChangeActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/drawable/buttonshape.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadd.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_findbeaconingroup.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_find_beacon.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_group.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconService.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MenuActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/MainActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/SettingActivity.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_findbeaconingroup.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/GPSServices.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/GPSService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/listview_item.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/ListViewItem.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/ListViewAdapter.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/GroupActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/activity_beacon.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconServices.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconInGroupActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="608" />
-    <option name="width" value="765" />
+    <option name="x" value="-7" />
+    <option name="width" value="697" />
     <option name="height" value="735" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -282,6 +348,239 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="generated" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="pngs" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="tmp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="kopps" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="drawable" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="layout" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="res" type="462c0819:PsiDirectoryNode" />
+              <item name="values" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
+              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
+              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
+              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
+              <item name="android" type="462c0819:PsiDirectoryNode" />
+              <item name="database" type="462c0819:PsiDirectoryNode" />
+              <item name="sqlite" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+              <item name="kopps" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="values" type="1f31426a:PackageElementNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+            </path>
+            <path>
+              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
+              <item name="app" type="616d4139:PackageViewModuleNode" />
+              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
+              <item name="com" type="1f31426a:PackageElementNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
@@ -549,250 +848,6 @@
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="kopps" type="cbb59c9e:AndroidPsiDirectoryNode" />
             </path>
-            <path>
-              <item name="KOPPS" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="1abcf292:AndroidViewProjectNode" />
-              <item name="app" type="feadf853:AndroidModuleNode" />
-              <item name="res" type="d4f16f75:AndroidResFolderNode" />
-              <item name="drawable" type="ddeffd01:AndroidResFolderTypeNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-              <item name="kopps" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="values" type="1f31426a:PackageElementNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="58d84e3e:PackageViewProjectNode" />
-              <item name="app" type="616d4139:PackageViewModuleNode" />
-              <item name="Libraries" type="5c3f07af:PackageViewLibrariesNode" />
-              <item name="com" type="1f31426a:PackageElementNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="generated" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="pngs" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-              <item name="tmp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="androidTest" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="kopps" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="drawable" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="layout" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="res" type="462c0819:PsiDirectoryNode" />
-              <item name="values" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="KOPPS" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="app" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="app" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="KOPPS" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-              <item name="&lt; Android API 28 Platform &gt;" type="70bed36:NamedLibraryElementNode" />
-              <item name="android.jar" type="462c0819:PsiDirectoryNode" />
-              <item name="android" type="462c0819:PsiDirectoryNode" />
-              <item name="database" type="462c0819:PsiDirectoryNode" />
-              <item name="sqlite" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -800,15 +855,22 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="DEBUGGABLE_DEVICE" value="samsung-sm_g935l-192.168.219.102:5555" />
+    <property name="DEBUGGABLE_PROCESS" value="com.kopps" />
+    <property name="DEBUGGER_ID" value="Auto" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="192.168.219.102:5555" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2019-09-22T13:30:58.230Z" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="SHOW_ALL_PROCESSES" value="false" />
     <property name="android.project.structure.last.selected" value="SDK Location" />
     <property name="android.project.structure.proportion" value="0.15" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
-    <property name="device.picker.selection" value="ce091609a2e73b3604" />
+    <property name="device.picker.selection" value="R3CM409E56Y" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="instant.run" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="PsdUISettings">
     <option name="MODULE_TAB" value="Default Config" />
@@ -1001,6 +1063,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Captures" order="0" sideWeight="0.5035587" side_tool="true" weight="0.14674735" />
       <window_info id="Structure" order="1" sideWeight="0.5019685" side_tool="true" weight="0.1505295" />
@@ -1008,26 +1071,26 @@
       <window_info id="Build Variants" order="3" sideWeight="0.5035587" side_tool="true" weight="0.14674735" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" x="166" y="113" width="206" height="505" id="Project" order="6" sideWeight="0.49644127" visible="true" weight="0.1785174" />
+      <window_info active="true" content_ui="combo" x="166" y="113" width="206" height="505" id="Project" order="6" sideWeight="0.49644127" visible="true" weight="0.18305598" />
       <window_info id="Resources Explorer" order="7" sideWeight="0.49466193" weight="0.14372164" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.510661" weight="0.23278688" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49924242" weight="0.3262295" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.10819672" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49848485" weight="0.32786885" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.48940998" side_tool="true" weight="0.26885247" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.5484115" visible="true" weight="0.21147542" />
-      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49924242" weight="0.32786885" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" show_stripe_button="false" sideWeight="0.49924242" weight="0.32894737" />
-      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.51059" weight="0.21931261" />
-      <window_info anchor="right" id="Device File Explorer" order="0" sideWeight="0.5089109" side_tool="true" weight="0.30937973" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" weight="0.32980332" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" sideWeight="0.4910891" weight="0.30711043" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Assistant" order="6" weight="0.21785174" />
+      <window_info anchor="bottom" id="TODO" order="0" sideWeight="0.4989339" weight="0.3253796" />
+      <window_info anchor="bottom" id="Debug" order="1" sideWeight="0.50852877" weight="0.3327869" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49733475" weight="0.22668113" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.4968017" side_tool="true" weight="0.23427331" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.329718" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49924242" weight="0.324295" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.5191898" weight="0.36393443" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" sideWeight="0.49924242" weight="0.3275488" />
+      <window_info anchor="bottom" id="Logcat" order="8" sideWeight="0.51759064" visible="true" weight="0.31311476" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.50319827" weight="0.23278688" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" sideWeight="0.49435028" weight="0.32942432" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Preview" order="3" sideWeight="0.4910891" weight="0.4160363" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Assistant" order="5" weight="0.21748401" />
+      <window_info anchor="right" id="Device File Explorer" order="6" sideWeight="0.50564975" side_tool="true" weight="0.32942432" />
     </layout>
     <layout-to-restore>
       <window_info id="Captures" order="0" sideWeight="0.5035587" side_tool="true" weight="0.14674735" />
@@ -1036,30 +1099,164 @@
       <window_info id="Build Variants" order="3" sideWeight="0.5035587" side_tool="true" weight="0.14674735" />
       <window_info id="Image Layers" order="4" />
       <window_info id="Designer" order="5" />
-      <window_info active="true" content_ui="combo" x="166" y="113" width="206" height="505" id="Project" order="6" sideWeight="0.49644127" visible="true" weight="0.19969743" />
+      <window_info active="true" content_ui="combo" x="166" y="113" width="206" height="505" id="Project" order="6" sideWeight="0.49644127" visible="true" weight="0.1337953" />
       <window_info id="Resources Explorer" order="7" sideWeight="0.49466193" weight="0.14372164" />
       <window_info id="Capture Tool" order="8" />
-      <window_info anchor="bottom" id="Run" order="0" sideWeight="0.510661" weight="0.23278688" />
-      <window_info anchor="bottom" id="TODO" order="1" sideWeight="0.49924242" weight="0.3262295" />
-      <window_info anchor="bottom" id="Debug" order="2" weight="0.25737706" />
-      <window_info anchor="bottom" id="Terminal" order="3" sideWeight="0.49848485" weight="0.32786885" />
-      <window_info anchor="bottom" id="Event Log" order="4" sideWeight="0.48940998" side_tool="true" weight="0.39016393" />
-      <window_info anchor="bottom" id="Version Control" order="5" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.5484115" weight="0.09016393" />
-      <window_info anchor="bottom" id="Find" order="7" sideWeight="0.49924242" weight="0.32786885" />
-      <window_info anchor="bottom" id="Android Profiler" order="8" sideWeight="0.49924242" weight="0.32894737" />
-      <window_info anchor="bottom" id="Logcat" order="9" sideWeight="0.51059" visible="true" weight="0.11147541" />
-      <window_info anchor="right" id="Device File Explorer" order="0" sideWeight="0.5089109" side_tool="true" weight="0.30937973" />
-      <window_info anchor="right" id="Capture Analysis" order="1" />
-      <window_info anchor="right" id="Gradle" order="2" weight="0.32980332" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Preview" order="4" sideWeight="0.4910891" weight="0.20726173" />
-      <window_info anchor="right" id="Palette&#9;" order="5" />
-      <window_info anchor="right" id="Assistant" order="6" weight="0.21785174" />
+      <window_info anchor="bottom" id="TODO" order="0" sideWeight="0.4989339" weight="0.3253796" />
+      <window_info anchor="bottom" id="Debug" order="1" sideWeight="0.50852877" weight="0.23210412" />
+      <window_info anchor="bottom" id="Terminal" order="2" sideWeight="0.49733475" visible="true" weight="0.22668113" />
+      <window_info anchor="bottom" id="Event Log" order="3" sideWeight="0.4968017" side_tool="true" weight="0.23427331" />
+      <window_info anchor="bottom" id="Version Control" order="4" weight="0.329718" />
+      <window_info anchor="bottom" id="Find" order="5" sideWeight="0.49924242" weight="0.324295" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.5191898" weight="0.1603467" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" sideWeight="0.49924242" weight="0.3275488" />
+      <window_info anchor="bottom" id="Logcat" order="8" sideWeight="0.51759064" weight="0.17570499" />
+      <window_info anchor="bottom" id="Run" order="9" sideWeight="0.50319827" weight="0.23427331" />
+      <window_info anchor="right" id="Capture Analysis" order="0" />
+      <window_info anchor="right" id="Gradle" order="1" sideWeight="0.49435028" weight="0.32942432" />
+      <window_info anchor="right" id="Theme Preview" order="2" />
+      <window_info anchor="right" id="Preview" order="3" sideWeight="0.4910891" weight="0.14232409" />
+      <window_info anchor="right" id="Palette&#9;" order="4" />
+      <window_info anchor="right" id="Assistant" order="5" weight="0.21748401" />
+      <window_info anchor="right" id="Device File Explorer" order="6" sideWeight="0.50564975" side_tool="true" weight="0.32942432" />
     </layout-to-restore>
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>190</line>
+          <properties />
+          <option name="timeStamp" value="93" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>191</line>
+          <properties />
+          <option name="timeStamp" value="94" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>202</line>
+          <properties />
+          <option name="timeStamp" value="95" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>203</line>
+          <properties />
+          <option name="timeStamp" value="96" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>213</line>
+          <properties />
+          <option name="timeStamp" value="97" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>214</line>
+          <properties />
+          <option name="timeStamp" value="98" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java</url>
+          <line>192</line>
+          <properties />
+          <option name="timeStamp" value="99" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>349</line>
+          <properties />
+          <option name="timeStamp" value="114" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>348</line>
+          <properties />
+          <option name="timeStamp" value="115" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>342</line>
+          <properties />
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>343</line>
+          <properties />
+          <option name="timeStamp" value="117" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>344</line>
+          <properties />
+          <option name="timeStamp" value="118" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>345</line>
+          <properties />
+          <option name="timeStamp" value="119" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>346</line>
+          <properties />
+          <option name="timeStamp" value="120" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>347</line>
+          <properties />
+          <option name="timeStamp" value="121" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>72</line>
+          <properties />
+          <option name="timeStamp" value="123" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>73</line>
+          <properties />
+          <option name="timeStamp" value="124" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>351</line>
+          <properties />
+          <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>352</line>
+          <properties />
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>353</line>
+          <properties />
+          <option name="timeStamp" value="128" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="ALL" type="java-line">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>354</line>
+          <properties />
+          <option name="timeStamp" value="129" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java</url>
+          <line>71</line>
+          <properties class="com.kopps.BeaconActivity" method="onResume" />
+          <option name="timeStamp" value="122" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-defaults>
         <breakpoint suspend="ALL" type="java-line" />
       </breakpoints-defaults>
@@ -1071,263 +1268,6 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/dutyfile/RangingActivity.java" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/dutyfile/RegisterActivity.java" />
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/java/lang/Thread.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="137">
-          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#485#486#0" expanded="true" />
-            <element signature="e#536#537#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/f28a0f9bb4bd1b9889e14d0950974004/jars/classes.jar!/android/support/v7/app/AppCompatActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="138" column="26" selection-start-line="138" selection-start-column="26" selection-end-line="138" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/c55f911ff82c22edf396843f1a15a9bc/jars/classes.jar!/org/altbeacon/beacon/RangeNotifier.class" />
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/app/Service.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="70" column="23" lean-forward="true" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
-          <folding>
-            <element signature="e#2069#2070#0" expanded="true" />
-            <element signature="e#2120#2121#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/content/ContextWrapper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="377" column="38" selection-start-line="377" selection-start-column="38" selection-end-line="377" selection-end-column="38" />
-          <folding>
-            <element signature="e#11110#11111#0" expanded="true" />
-            <element signature="e#11161#11162#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/widget/LinearLayout.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="19" column="13" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/07b3892ff9f3cbf585bcb6e585a14a92/jars/classes.jar!/com/google/android/gms/maps/model/LatLng.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="36" column="11" selection-start-line="36" selection-start-column="11" selection-end-line="36" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-338">
-          <caret line="168" column="41" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/android.jar!/android/database/sqlite/SQLiteOpenHelper.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="14" column="22" selection-start-line="14" selection-start-column="22" selection-end-line="14" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g935l-ce091609a2e73b3604/data/data/com.kopps/cache/1" />
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g935l-ce091609a2e73b3604/data/data/com.kopps/cache/12345" />
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g935l-ce091609a2e73b3604/data/data/com.kopps/cache/테스트" />
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g935l-ce091609a2e73b3604/data/data/com.kopps/cache/abcd" />
-    <entry file="file://$USER_HOME$/Documents/AndroidStudio/DeviceExplorer/samsung-sm_g935l-ce091609a2e73b3604/data/data/com.kopps/databases/Test.db" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/CachingBeacon.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="54" column="9" selection-start-line="44" selection-start-column="8" selection-end-line="54" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="125" column="37" lean-forward="true" selection-start-line="125" selection-start-column="37" selection-end-line="125" selection-end-column="37" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/236158385d8d1c5fdcd951194ad4febe/jars/classes.jar!/org/altbeacon/beacon/Beacon.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="41" column="27" selection-start-line="41" selection-start-column="27" selection-end-line="41" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/widget/TextView.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="859" column="11" selection-start-line="859" selection-start-column="11" selection-end-line="859" selection-end-column="19" />
-          <folding>
-            <element signature="e#35502#35503#0" expanded="true" />
-            <element signature="e#35537#35538#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/Thread.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="948" column="38" selection-start-line="948" selection-start-column="38" selection-end-line="948" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconChangeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="57" column="45" selection-start-line="57" selection-start-column="45" selection-end-line="57" selection-end-column="45" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupChangeActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="522">
-          <caret line="38" column="31" selection-start-line="38" selection-start-column="31" selection-end-line="38" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MenuActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="12" column="40" selection-start-line="12" selection-start-column="40" selection-end-line="12" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/splash.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/mipmap-hdpi/ic_launcher.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/buttonshape.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="31" lean-forward="true" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadd.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadding.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="15" column="35" selection-start-line="15" selection-start-column="35" selection-end-line="15" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beacondelete.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="25" selection-end-line="36" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_groupadd.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="21" column="20" selection-start-line="21" selection-start-column="20" selection-end-line="21" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_groupdelete.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="349">
-          <caret line="22" column="20" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_maps.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_groupchange.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beaconchange.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="22" column="32" lean-forward="true" selection-start-line="22" selection-start-column="32" selection-end-line="22" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml">
-      <provider selected="true" editor-type-id="android-designer2" />
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="855">
-          <caret line="45" column="39" lean-forward="true" selection-start-line="38" selection-start-column="16" selection-end-line="45" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable/alram_smallcon.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/drawable-anydpi-v24/noti_alram.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconDeleteActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="50" selection-start-line="50" selection-end-line="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Notification.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-836">
@@ -1335,26 +1275,265 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+        <state relative-caret-position="57">
+          <caret line="3" column="29" selection-start-line="3" selection-start-column="29" selection-end-line="3" selection-end-column="29" />
         </state>
       </provider>
-      <provider editor-type-id="android-manifest" />
     </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="22729" column="36" selection-start-line="22729" selection-start-column="36" selection-end-line="22729" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8452c7332887f3f1b8fad481619a8712/appcompat-v7-28.0.0/jars/classes.jar!/android/support/v7/app/AppCompatActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="311">
+          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/content/ContextWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1394">
+          <caret line="715" column="16" selection-start-line="715" selection-start-column="16" selection-end-line="715" selection-end-column="16" />
+          <folding>
+            <element signature="e#20722#20723#0" expanded="true" />
+            <element signature="e#20763#20764#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-26/android/os/Binder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="756" column="26" selection-start-line="756" selection-start-column="26" selection-end-line="756" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/CachingBeacon.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_groupadd.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret selection-end-line="23" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_groupchange.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="42" column="40" selection-start-line="38" selection-end-line="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/8820983467c720c2f55214c64cbeabc5/design-28.0.0/res/values/values.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="298">
+          <caret line="328" column="18" selection-start-line="328" selection-start-column="18" selection-end-line="328" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/database/sqlite/SQLiteOpenHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="564">
+          <caret line="399" column="25" lean-forward="true" selection-start-line="399" selection-start-column="25" selection-end-line="399" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconDeleteActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconChangeActivity.java" />
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_findbeaconingroup.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="46" column="8" selection-start-line="46" selection-start-column="8" selection-end-line="46" selection-end-column="8" />
+        <state relative-caret-position="680">
+          <caret line="45" column="35" selection-start-line="45" selection-start-column="35" selection-end-line="45" selection-end-column="35" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java">
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa4d6c4ef20dd4df4ea3eee383916386/android-beacon-library-2.16.3/jars/classes.jar!/org/altbeacon/beacon/BeaconConsumer.class" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beaconadd.xml">
+      <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="198" column="71" selection-start-line="198" selection-start-column="71" selection-end-line="198" selection-end-column="71" />
+        <state relative-caret-position="114">
+          <caret line="6" column="38" selection-end-line="15" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupAddActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupDeleteActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupChangeActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_menu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_group.xml" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MapsActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="205" column="78" selection-start-line="205" selection-start-column="78" selection-end-line="205" selection-end-column="78" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="706">
+          <caret line="121" column="5" selection-start-line="121" selection-start-column="5" selection-end-line="121" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/MenuActivity.java" />
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/fa4d6c4ef20dd4df4ea3eee383916386/android-beacon-library-2.16.3/jars/classes.jar!/org/altbeacon/beacon/BeaconManager.class" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BGroup.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="34" column="1" lean-forward="true" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_setting.xml" />
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="57" lean-forward="true" selection-start-line="10" selection-start-column="57" selection-end-line="10" selection-end-column="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GPSService.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/SettingActivity.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="551">
+          <caret line="29" column="16" selection-start-line="29" selection-start-column="16" selection-end-line="29" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="110" column="17" selection-start-line="110" selection-start-column="17" selection-end-line="110" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/ListViewItem.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/ListViewAdapter.java" />
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/listview_item.xml" />
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/data/res/layout/simple_list_item_1.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="69" lean-forward="true" selection-start-line="24" selection-start-column="69" selection-end-line="24" selection-end-column="69" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/SplashActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="18" column="17" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/platforms/android-28/data/res/layout/simple_list_item_2.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_find_beacon.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="203" column="51" lean-forward="true" selection-start-line="203" selection-start-column="51" selection-end-line="203" selection-end-column="51" />
+          <folding>
+            <element signature="e#1509#1949#0" expanded="true" />
+            <element signature="e#1948#1949#0" expanded="true" />
+            <element signature="e#1995#4655#0" expanded="true" />
+            <element signature="e#2445#4346#0" expanded="true" />
+            <element signature="e#4345#4346#0" expanded="true" />
+            <element signature="e#4654#4655#0" expanded="true" />
+            <element signature="e#5487#7222#0" expanded="true" />
+            <element signature="e#7221#7222#0" expanded="true" />
+            <element signature="e#7276#7474#0" expanded="true" />
+            <element signature="e#7473#7474#0" expanded="true" />
+            <element signature="e#8019#9541#0" expanded="true" />
+            <element signature="e#9540#9541#0" expanded="true" />
+            <element signature="e#9596#9794#0" expanded="true" />
+            <element signature="e#9793#9794#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1786">
+          <caret line="119" column="26" lean-forward="true" selection-start-line="119" selection-start-column="26" selection-end-line="119" selection-end-column="26" />
+          <folding>
+            <element signature="e#1629#1630#0" expanded="true" />
+            <element signature="e#1667#1668#0" expanded="true" />
+            <element signature="e#2218#3248#0" expanded="true" />
+            <element signature="e#3247#3248#0" expanded="true" />
+            <element signature="e#3301#3302#0" expanded="true" />
+            <element signature="e#3332#3333#0" expanded="true" />
+            <element signature="e#3954#9151#0" expanded="true" />
+            <element signature="e#7850#8589#0" expanded="true" />
+            <element signature="e#8588#8589#0" expanded="true" />
+            <element signature="e#9150#9151#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/813383dbd88ce170799e6e0227fc255b/android-beacon-library-2.16.2/jars/classes.jar!/org/altbeacon/beacon/BeaconManager.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="153" selection-start-line="153" selection-end-line="153" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_beacon.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2508">
+          <caret line="152" column="66" selection-start-line="152" selection-start-column="66" selection-end-line="152" selection-end-column="66" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1363,72 +1542,50 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconServices.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="268">
-          <caret line="74" column="20" selection-start-line="74" selection-start-column="20" selection-end-line="76" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1899#2385#0" expanded="true" />
-            <element signature="e#2384#2385#0" expanded="true" />
-            <element signature="e#2634#2635#0" expanded="true" />
-            <element signature="e#2667#2668#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddingActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="219">
-          <caret line="30" column="75" selection-start-line="30" selection-start-column="75" selection-end-line="30" selection-end-column="75" />
+        <state relative-caret-position="703">
+          <caret line="56" column="35" selection-start-line="56" selection-start-column="35" selection-end-line="56" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupDeleteActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="417">
-          <caret line="32" column="72" selection-start-line="32" selection-start-column="72" selection-end-line="32" selection-end-column="72" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/GroupAddActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/java/lang/String.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="112" column="19" selection-start-line="112" selection-start-column="19" selection-end-line="112" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/FindBeaconInGroupActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="314">
-          <caret line="229" column="66" selection-start-line="229" selection-start-column="66" selection-end-line="229" selection-end-column="66" />
+        <state relative-caret-position="2768">
+          <caret line="355" column="36" lean-forward="true" selection-start-line="355" selection-start-column="36" selection-end-line="355" selection-end-column="36" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#4192#5644#0" expanded="true" />
+            <element signature="e#5643#5644#0" expanded="true" />
+            <element signature="e#14658#15245#0" expanded="true" />
+            <element signature="e#15244#15245#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconAddActivity.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/BeaconActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2432">
-          <caret line="148" column="85" selection-start-line="148" selection-start-column="85" selection-end-line="148" selection-end-column="85" />
+        <state relative-caret-position="184">
+          <caret line="379" column="23" lean-forward="true" selection-start-line="379" selection-start-column="23" selection-end-line="379" selection-end-column="23" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#3577#5156#0" expanded="true" />
+            <element signature="e#5155#5156#0" expanded="true" />
+            <element signature="e#6058#6435#0" expanded="true" />
+            <element signature="e#6434#6435#0" expanded="true" />
+            <element signature="e#6473#9998#0" expanded="true" />
+            <element signature="e#9997#9998#0" expanded="true" />
+            <element signature="e#9244#11843#0" expanded="true" />
+            <element signature="e#11842#11843#0" expanded="true" />
+            <element signature="e#13725#14573#0" expanded="true" />
+            <element signature="e#14572#14573#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/kopps/DataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="87" column="170" selection-start-line="87" selection-start-column="170" selection-end-line="87" selection-end-column="170" />
         </state>
       </provider>
     </entry>

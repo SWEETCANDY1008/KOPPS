@@ -1,0 +1,67 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".BeaconActivity" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:text="비콘관리\n비콘을 선택하시면 비콘의 현재위치를 지도에 보여줍니다."
+        android:gravity="center"/>
+
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:choiceMode="singleChoice" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center|bottom">
+
+        <ToggleButton
+            android:id="@+id/beaconfind"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="추적">
+        </ToggleButton>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center|bottom"
+            android:layout_weight="1">
+
+            <Button
+                android:id="@+id/add"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="추가">
+            </Button>
+
+            <Button
+                android:id="@+id/modify"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="수정">
+
+            </Button>
+
+            <Button
+                android:id="@+id/delete"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="삭제">
+            </Button>
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

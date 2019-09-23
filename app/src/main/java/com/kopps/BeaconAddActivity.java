@@ -15,7 +15,7 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.ToggleButton;
 import org.altbeacon.beacon.Beacon;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -26,15 +26,11 @@ public class BeaconAddActivity extends AppCompatActivity {
     private ArrayList<Beacon> findbeaconList = new ArrayList<>();
     private BeaconServices mService;
     private boolean mBound = false;
-
     private boolean isStart = true;
-
 
     Runnable r = new thread();
     Thread thread;
     Intent intent;
-
-
 
     private ServiceConnection mConnection = new ServiceConnection() {
         @Override
@@ -59,27 +55,31 @@ public class BeaconAddActivity extends AppCompatActivity {
         intent = new Intent(BeaconAddActivity.this, BeaconServices.class);
         bindService(intent, mConnection, Context.BIND_AUTO_CREATE);
 
-        Button button = (Button) findViewById(R.id.startbutton);
+        final ToggleButton button = (ToggleButton) findViewById(R.id.startbutton);
 
-        button.setOnClickListener(new Button.OnClickListener() {
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if(isStart) {
-                    thread = new Thread(r);
-                    if(mBound) {
-                        findbeaconList = mService.getBeaconList();
+            public void onClick(View v) {
+                try {
+                    if (button.isChecked()) {
+                        thread = new Thread(r);
+                        if (mBound) {
+                            findbeaconList = mService.getBeaconList();
+                        }
+                        thread.start();
+                        isStart = false;
+                        Toast.makeText(getApplicationContext(), "비콘찾기를 시작합니다.", Toast.LENGTH_SHORT).show();
+
+                    } else {
+                        if (mBound) {
+                            unbindService(mConnection);
+                            mBound = false;
+                        }
+                        thread.interrupt();
+                        isStart = true;
+                        Toast.makeText(getApplicationContext(), "비콘찾기를 종료합니다.", Toast.LENGTH_SHORT).show();
                     }
-                    thread.start();
-                    isStart = false;
-                    Toast.makeText(getApplicationContext(), "비콘찾기를 시작합니다.",Toast.LENGTH_SHORT).show();
-                } else {
-                    if(mBound) {
-                        unbindService(mConnection);
-                        mBound = false;
-                    }
-                    thread.interrupt();
-                    isStart = true;
-                    Toast.makeText(getApplicationContext(), "비콘찾기를 종료합니다.",Toast.LENGTH_SHORT).show();
+                } catch (SecurityException ex) {
                 }
             }
         });
@@ -170,16 +170,15 @@ public class BeaconAddActivity extends AppCompatActivity {
                     buttons.setOnClickListener(new Button.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Intent myIntent = new Intent(BeaconAddActivity.this, BeaconAddingActivity.class);
-                            myIntent.putExtra("beacon_test", (Serializable) beacon_test);
-                            BeaconAddActivity.this.startActivity(myIntent);
-                      }
+//                            Intent myIntent = new Intent(BeaconAddActivity.this, BeaconAddingActivity.class);
+//                            myIntent.putExtra("beacon_test", (Serializable) beacon_test);
+//                            BeaconAddActivity.this.startActivity(myIntent);
+                        }
                     });
                 }
             }
         });
     }
-
 
     class thread implements Runnable {
 

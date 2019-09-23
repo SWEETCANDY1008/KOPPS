@@ -1,5 +1,6 @@
 package com.kopps;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -30,10 +31,15 @@ import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.altbeacon.beacon.Beacon;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPolylineClickListener,
         GoogleMap.OnPolygonClickListener {
-
+    private ArrayList<Double[]> gps_test = new ArrayList<>();
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
@@ -63,6 +69,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        gps_test = (ArrayList<Double[]>) intent.getSerializableExtra("gps_test");
+        Log.d("maps", String.valueOf(gps_test));
+//        Log.d("maps", String.valueOf(gps_test.get(0)));
+
+
+
         super.onCreate(savedInstanceState);
 
         // Retrieve location and camera position from saved instance state.
@@ -166,28 +179,65 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
 
-                            double Latitude = mLastKnownLocation.getLatitude();
-                            double Longitude = mLastKnownLocation.getLongitude();
-
-                            LatLng latlng= new LatLng(Latitude, Longitude);
+//                            double Latitude = mLastKnownLocation.getLatitude();
+//                            double Longitude = mLastKnownLocation.getLongitude();
+//
+//                            LatLng latlng= new LatLng(Latitude, Longitude);
 
                             //                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
 
-                            Circle circle = mMap.addCircle(new CircleOptions()
-                                    .center(latlng)
-                                    .radius(50)
+
+
+                            double Latitude1 = (double) gps_test.get(0)[0];
+                            double Longitude1 = (double) gps_test.get(0)[1];
+                            int rssi = gps_test.get(0)[2].intValue();
+
+                            LatLng latlng1= new LatLng(Latitude1, Longitude1);
+
+                            Circle circle1 = mMap.addCircle(new CircleOptions()
+                                    .center(latlng1)
+                                    .radius(rssi)
                                     .strokeColor(Color.RED)
-                                    .fillColor(0x5985ffff));
+                                    .fillColor(0x5985ff11));
+
+                            double Latitude2 = (double) gps_test.get(1)[0];
+                            double Longitude2 = (double) gps_test.get(1)[1];
+
+                            LatLng latlng2= new LatLng(Latitude2, Longitude2);
+
+                            Circle circle2 = mMap.addCircle(new CircleOptions()
+                                    .center(latlng2)
+                                    .radius(rssi)
+                                    .strokeColor(Color.RED)
+                                    .fillColor(0x5985ff22));
+
+                            double Latitude3 = (double) gps_test.get(2)[0];
+                            double Longitude3 = (double) gps_test.get(2)[1];
+
+                            LatLng latlng3= new LatLng(Latitude3, Longitude3);
+
+                            Circle circle3 = mMap.addCircle(new CircleOptions()
+                                    .center(latlng3)
+                                    .radius(rssi)
+                                    .strokeColor(Color.RED)
+                                    .fillColor(0x5985ff33));
+
+
+
+
+
+
+
+
+
 
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    latlng, DEFAULT_ZOOM));
+                                    latlng1, DEFAULT_ZOOM));
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
                             mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-
                         }
                     }
                 });

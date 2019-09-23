@@ -5,25 +5,12 @@
     android:versionCode="1"
     android:versionName="1.0">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme">
-
-        <service android:name=".BeaconServices" />
-
-        <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
-        <meta-data
-            android:name="com.google.android.geo.API_KEY"
-            android:value="" />
-
+        <activity android:name=".SettingActivity"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/SplashTheme">
@@ -33,61 +20,38 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity
+            android:name=".FindBeaconActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:name=".BeaconActivity"
+            android:label="@string/app_name" />
         <activity
             android:name=".MainActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".MenuActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
         <activity
             android:name=".MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+            android:label="@string/title_activity_maps" />
         <activity
-            android:name=".GroupAddActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".GroupChangeActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".GroupDeleteActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".BeaconAddActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".BeaconAddingActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".BeaconChangeActivity"
-            android:label="@string/app_name"></activity>
-        <activity
-            android:name=".BeaconDeleteActivity"
-            android:label="@string/app_name"></activity>
-
-
-
-
-
-
+            android:name=".GroupActivity"
+            android:label="@string/app_name" />
         <activity
             android:name=".FindBeaconInGroupActivity"
-            android:label="@string/app_name"></activity>
+            android:label="@string/app_name" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDI9WeZvjryHyAkftAqe3U4qlyBDFUWNRU" />
 
-
-
-
-
-        <!-- uncomment the following to enable scanning for over 30 minutes on Android 7+ -->
-        <!--<service-->
-            <!--android:name="org.altbeacon.beacon.service.BeaconService"-->
-            <!--tools:node="replace">-->
-            <!--<meta-data-->
-                <!--android:name="longScanForcingEnabled"-->
-                <!--android:value="true" />-->
-        <!--</service>-->
-
-
+        <service
+            android:name=".BeaconServices"/>
+        <service
+            android:name=".GPSServices"/>
     </application>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
 </manifest>
