@@ -28,8 +28,8 @@
             android:id="@+id/beaconfind"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="추적">
-        </ToggleButton>
+            android:text="추적"/>
+
 
         <LinearLayout
             android:layout_width="match_parent"

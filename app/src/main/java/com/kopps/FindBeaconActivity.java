@@ -186,6 +186,10 @@ public class FindBeaconActivity extends AppCompatActivity {
                             dialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
                                 public void onClick(DialogInterface dialog, int which) {
                                     String value = edittexts.getText().toString();
+
+                                    // 별명이 이미 존재하는지 확인해야 함
+
+
                                     Toast.makeText(getApplicationContext(), "별명 : " + value, Toast.LENGTH_LONG).show();
                                     dialog.dismiss();
                                     // 비콘 별명을 받으면 그 비콘의 정보와 별명을 데이터베이스에 저장하는 코드가 들어가야 함

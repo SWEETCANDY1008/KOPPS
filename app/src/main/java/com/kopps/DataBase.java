@@ -21,7 +21,7 @@ public class DataBase extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname TEXT PRIMARY KEY);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONTABLE (nickname TEXT, groupname TEXT, id1 TEXT, id2 TEXT, id3 TEXT, PRIMARY KEY(nickname, groupname));");
-        db.execSQL("CREATE TABLE IF NOT EXISTS LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance INTEGER, time NUMERIC);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC);");
     }
 
     // DB 업그레이드를 위한 메소드
@@ -81,9 +81,9 @@ public class DataBase extends SQLiteOpenHelper {
         db.close();
     }
 
-
+//    LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance INTEGER, time NUMERIC)
 // LOCATION TABLE
-    public void insert(String nickname, double latitude, double longitude, int distance) {
+    public void insert(String nickname, double latitude, double longitude, double distance) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("INSERT INTO LOCATION(nickname, latitude, longitude, distance, time) VALUES('" + nickname + "', '" + latitude + "', '" + longitude + "', '" + distance + "', datetime('now','localtime'));");
         db.close();
@@ -141,19 +141,45 @@ public class DataBase extends SQLiteOpenHelper {
         return datalist;
     }
 
-    public ArrayList getBeaconID1(String groupname) {
+    public ArrayList getBeaconID1(String nickname, String groupname) {
         ArrayList<String> datalist = new ArrayList<>();
         // 읽기가 가능하게 DB 열기
         datalist.clear();
         SQLiteDatabase db = getReadableDatabase();
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE groupname='" + groupname + "'", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE nickname='" + nickname + "' AND groupname='" + groupname + "'", null);
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(2));
         }
-
         return datalist;
     }
+
+    public ArrayList getBeaconID2(String nickname, String groupname) {
+        ArrayList<String> datalist = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalist.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE nickname='" + nickname + "' AND groupname='" + groupname + "'", null);
+        while (cursor.moveToNext()) {
+            datalist.add(cursor.getString(3));
+        }
+        return datalist;
+    }
+
+    public ArrayList getBeaconID3(String nickname, String groupname) {
+        ArrayList<String> datalist = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalist.clear();
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE nickname='" + nickname + "' AND groupname='" + groupname + "'", null);
+        while (cursor.moveToNext()) {
+            datalist.add(cursor.getString(4));
+        }
+        return datalist;
+    }
+
 
     public ArrayList getBeaconNICKNAME(String groupname) {
         ArrayList<String> datalist = new ArrayList<>();
@@ -182,40 +208,29 @@ public class DataBase extends SQLiteOpenHelper {
 
         return datalist;
     }
-
-    public ArrayList getthreenearbeacongps(String id1, String id2, String id3) {
-        ArrayList<Double[]> datalists = new ArrayList<>();
+//    insert(String nickname, double latitude, double longitude, double distance)
+    public ArrayList getthreenearbeacongps(String nickname) {
+        ArrayList<Double> datalists = new ArrayList<>();
         // 읽기가 가능하게 DB 열기
         datalists.clear();
 
         SQLiteDatabase db = getReadableDatabase();
         // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT DISTINCT latitude, longitude FROM LOCATION WHERE id1='" + id1 + "' AND id2='" + id2 + "' AND id3='" + id3 + "' ORDER BY time DESC", null);
-        Cursor cursor_rssi = db.rawQuery("SELECT rssi FROM LOCATION WHERE id1='" + id1 + "' AND id2='" + id2 + "' AND id3='" + id3 + "' ORDER BY time DESC", null);
+        Cursor cursor = db.rawQuery("SELECT latitude, longitude, distance FROM LOCATION ORDER BY time DESC WHERE nickname='" + nickname + "'", null);
 
-        if(cursor != null && cursor.getCount() != 0) {
-            while (cursor.moveToNext() && cursor_rssi.moveToNext()) {
-                Double lati = cursor.getDouble(0);
-                Double longs = cursor.getDouble(1);
-                Double rssi = cursor_rssi.getDouble(0);
+        if (cursor != null && cursor.getCount() != 0) {
+            cursor.moveToFirst();
+            Double lati = cursor.getDouble(0);
+            Double longs = cursor.getDouble(1);
+            Double distance = cursor.getDouble(2);
 
-                Double[] test = {lati, longs, rssi};
-                datalists.add(test);
+            datalists.add(lati);
+            datalists.add(longs);
+            datalists.add(distance);
 
-                if(datalists.size() == 3) {
-                    break;
-                }
-            }
-        } else {
-            datalists = null;
+            Log.d("test", datalists.toString());
+
         }
-
-        Log.d("test", datalists.toString());
         return datalists;
     }
-
-
-
-
-
 }

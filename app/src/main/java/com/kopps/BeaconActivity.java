@@ -1,5 +1,10 @@
 package com.kopps;
 
+import android.annotation.TargetApi;
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -8,7 +13,9 @@ import android.content.ServiceConnection;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.os.Build;
 import android.os.IBinder;
+import android.support.v4.app.NotificationCompat;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -34,22 +41,30 @@ import java.util.HashMap;
 
 public class BeaconActivity extends AppCompatActivity {
     protected static final String TAG = "BeaconActivity";
-
+    ArrayList<String> ID1 = new ArrayList<>();
+    ArrayList<String> ID2 = new ArrayList<>();
+    ArrayList<String> ID3 = new ArrayList<>();
     ArrayList<String> beaconlist = new ArrayList<>();
     ArrayList<String> lists = new ArrayList<>();
+
+    ArrayList<Double> beacon_data = new ArrayList<>();
+
+
     private ArrayAdapter<String> adapter;
 
     private ArrayList<Beacon> findbeaconList = new ArrayList<>();
     private BeaconServices mService;
     private boolean mBound = false;
-    boolean isStart = true;
+    private boolean isStart = true;
 
     private double longs = 0.0;
     private double latis = 0.0;
 
+
+
     Runnable r = new thread();
     Thread thread;
-    Intent intent;
+    Intent intent_beacon;
 
     String test;
     String group_name;
@@ -64,6 +79,7 @@ public class BeaconActivity extends AppCompatActivity {
 
         @Override
         public void onServiceDisconnected(ComponentName arg0) {
+            mService = null;
             mBound = false;
         }
     };
@@ -76,7 +92,7 @@ public class BeaconActivity extends AppCompatActivity {
         lists.clear();
         beaconlist = database.getBeacon(group_name);
         for(String a : beaconlist) {
-            test = a + "\n이건 거리입니다.";
+            test = a + "\n거리 : 15.7m";
             lists.add(test);
         }
         adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -91,35 +107,33 @@ public class BeaconActivity extends AppCompatActivity {
         setContentView(R.layout.activity_beacon);
         final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
 
+        intent_beacon = new Intent(BeaconActivity.this, BeaconServices.class);
+        bindService(intent_beacon, mConnection, Context.BIND_AUTO_CREATE);
+
         Intent intent = getIntent();
         group_name = intent.getExtras().getString("group");
-
         beaconlist = database.getBeacon(group_name);
-
         for(String a : beaconlist) {
-            test = a + "\n이건 거리입니다.";
+            test = a + "\n거리 : 15.7m";
             lists.add(test);
         }
-
-
-        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
 
         Button add = (Button) findViewById(R.id.add);
         Button modify = (Button) findViewById(R.id.modify);
         Button delete = (Button) findViewById(R.id.delete);
-        final ToggleButton beaconfind = (ToggleButton) findViewById(R.id.beaconfind);
 
-        beaconfind.setOnClickListener(new View.OnClickListener() {
+        final ToggleButton button = (ToggleButton) findViewById(R.id.beaconfind);
+        final LocationManager lm = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 try {
-                    if (beaconfind.isChecked()) {
+                    if(button.isChecked()){
                         thread = new Thread(r);
-                        if (mBound) {
+                        if(mBound) {
                             findbeaconList = mService.getBeaconList();
                         }
-                        thread.start();
-                        isStart = false;
 
                         lm.requestLocationUpdates(LocationManager.GPS_PROVIDER, // 등록할 위치제공자
                                 100, // 통지사이의 최소 시간간격 (miliSecond)
@@ -131,20 +145,22 @@ public class BeaconActivity extends AppCompatActivity {
                                 1, // 통지사이의 최소 변경거리 (m)
                                 mLocationListener);
 
+                        thread.start();
+                        isStart = false;
+                        Toast.makeText(getApplicationContext(), "비콘찾기를 시작합니다.",Toast.LENGTH_SHORT).show();
 
-
-                        Toast.makeText(getApplicationContext(), "비콘찾기를 시작합니다.", Toast.LENGTH_SHORT).show();
                     } else {
-                        if (mBound) {
+                        if(mBound) {
                             unbindService(mConnection);
                             mBound = false;
                         }
+                        lm.removeUpdates(mLocationListener);  //  미수신할때는 반드시 자원해체를 해주어야 한다.
                         thread.interrupt();
                         isStart = true;
-                        Toast.makeText(getApplicationContext(), "비콘찾기를 종료합니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "비콘찾기를 종료합니다.",Toast.LENGTH_SHORT).show();
+
                     }
-                } catch (SecurityException ex) {
-                }
+                } catch(SecurityException ex){}
             }
         });
 
@@ -160,11 +176,11 @@ public class BeaconActivity extends AppCompatActivity {
                 @Override
                 public void onItemClick(AdapterView parent, View v, int position, long id) {
                     // 맵 화면으로 이동한다.
-                    Intent intent = new Intent(BeaconActivity.this, MapsActivity.class);
+                    Intent intent_map = new Intent(BeaconActivity.this, MapsActivity.class);
                     // 계산된 좌표값을 전송해야함
-                    // String get_group = lists.get(position);
-                    // intent.putExtra("group", get_group);
-                    startActivity(intent);
+                    double gps[] = {latis, longs};
+                    intent_map.putExtra("gps", gps);
+                    startActivity(intent_map);
                 }
             });
         }
@@ -224,7 +240,7 @@ public class BeaconActivity extends AppCompatActivity {
                             lists.clear();
                             beaconlist = database.getBeacon(group_name);
                             for(String a : beaconlist) {
-                                test = a + "\n이건 거리입니다.";
+                                test = a + "\n거리 : 15.7m";
                                 lists.add(test);
                             }
                             adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -273,7 +289,7 @@ public class BeaconActivity extends AppCompatActivity {
                             lists.clear();
                             beaconlist = database.getBeacon(group_name);
                             for(String a : beaconlist) {
-                                test = a + "\n이건 거리입니다.";
+                                test = a + "\n거리 : 15.7m";
                                 lists.add(test);
                             }
                             adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -340,20 +356,81 @@ public class BeaconActivity extends AppCompatActivity {
         final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
         runOnUiThread(new Runnable() {
             public void run() {
-                for(Beacon beacon : findbeaconList) {
+                // 감지되는 비콘들
+                findbeaconList = mService.getBeaconList();
+
+                for(final Beacon beacon : findbeaconList) {
+                    // 비콘이 감지될때 마다 현재 위치 저장
                     beaconlist.clear();
+                    beacon_data.clear();
                     lists.clear();
                     beaconlist = database.getBeacon(group_name);
                     String distance = String.valueOf(beacon.getDistance());
+
+                    // DB에 저장된 비콘들
                     for(String a : beaconlist) {
-                        test = a + "\n" + distance;
+                        ID1 = database.getBeaconID1(a, group_name);
+                        ID2 = database.getBeaconID2(a, group_name);
+                        ID3 = database.getBeaconID3(a, group_name);
+
+                        String beacon_id1 = String.valueOf(beacon.getId1());
+                        String beacon_id2 = String.valueOf(beacon.getId2());
+                        String beacon_id3 = String.valueOf(beacon.getId3());
+
+                        test = a + "\n거리 : " + distance + "m";
+
+//                        계속 측정되고있는 현재 위치
+//                        latis;
+//                        longs;
+//                        바로 직전위치 정보가 필요하다. 직전위치랑 비교해서 동일한 경우 insert 하지 않음
+                        beacon_data = database.getthreenearbeacongps(a);
+                        double latied = beacon_data.get(0);
+                        double longed = beacon_data.get(1);
+
+                        if((latied != latis) && (longed != longs)) {
+//                        database.insert(a, latis, longs, beacon.getDistance());
+                            Log.d("test", "add gps");
+                        } else if((latied == latis) && (longed != longs)) {
+//                        database.insert(a, latis, longs, beacon.getDistance());
+                            Log.d("test", "add gps");
+                        } else if((latied != latis) && (longed == longs)) {
+//                        database.insert(a, latis, longs, beacon.getDistance());
+                            Log.d("test", "add gps");
+                        } else if((latied == latis) && (longed == longs)){
+                            Log.d("test", "no add gps");
+                        }
+
+//                        database.insert(a, latis, longs, beacon.getDistance());
+
+
+
+
+                        Log.d(TAG, "database insert!!!!");
                         lists.add(test);
+
+                        if(!ID1.contains(beacon_id1)
+                                && !ID2.contains(beacon_id2)
+                                && !ID3.contains(beacon_id3)) {
+                            alarmNotification(a, 0);
+                            Log.d(TAG, "알람이 떠야 합니다.");
+                        }
+
                     }
                     adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
                     ListView listview = (ListView) findViewById(R.id.listview1);
                     listview.setAdapter(BeaconActivity.this.adapter);
                     adapter.notifyDataSetChanged();
                 }
+
+                if(findbeaconList.size() == 0) {
+                    for(String a : beaconlist) {
+                        alarmNotification(a, 0);
+                    }
+                }
+
+
+
+
             }
         });
     }
@@ -386,4 +463,28 @@ public class BeaconActivity extends AppCompatActivity {
             Log.d("test", "onStatusChanged, provider:" + provider + ", status:" + status + " ,Bundle:" + extras);
         }
     };
+
+    // 노티 관련  실행은 alarmNotification(닉네임, 구분할 id)
+    @TargetApi(Build.VERSION_CODES.O)
+    public void alarmNotification(String nick, int noti_id) {
+        PendingIntent intents_alarm = PendingIntent.getActivity(BeaconActivity.this, 0, new Intent(this, BeaconActivity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+
+        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel notificationChannel = new NotificationChannel("channel_id", "channel_name", NotificationManager.IMPORTANCE_DEFAULT);
+        notificationManager.createNotificationChannel(notificationChannel);
+
+        NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(BeaconActivity.this, notificationChannel.getId());
+        notificationBuilder.setAutoCancel(true)
+                .setSmallIcon(R.drawable.alram_smallcon)
+                .setContentTitle("신호 끊김")
+                .setContentText(nick + "의 신호가 끊겼습니다.")
+                .setTicker("신호 끊김")
+                .setDefaults(Notification.DEFAULT_VIBRATE)
+                .setContentIntent(intents_alarm);
+
+        notificationManager.notify(noti_id, notificationBuilder.build());
+    }
+
+
+
 }

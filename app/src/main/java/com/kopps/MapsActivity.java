@@ -21,11 +21,13 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -39,11 +41,11 @@ import java.util.List;
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPolylineClickListener,
         GoogleMap.OnPolygonClickListener {
-    private ArrayList<Double[]> gps_test = new ArrayList<>();
+    private double[] gps;
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
-
+    double Latitude, Longitude;
 
     // The entry points to the Places API.
     private GeoDataClient mGeoDataClient;
@@ -69,14 +71,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        Intent intent = getIntent();
-        gps_test = (ArrayList<Double[]>) intent.getSerializableExtra("gps_test");
-        Log.d("maps", String.valueOf(gps_test));
-//        Log.d("maps", String.valueOf(gps_test.get(0)));
-
-
+    //        Log.d("maps", String.valueOf(gps_test.get(0)));
 
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+
+        Intent intent = getIntent();
+        gps = intent.getDoubleArrayExtra("gps");
 
         // Retrieve location and camera position from saved instance state.
         if (savedInstanceState != null) {
@@ -85,7 +86,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_maps);
+
 
         // Construct a GeoDataClient.
         mGeoDataClient = Places.getGeoDataClient(this, null);
@@ -157,6 +158,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getDeviceLocation();
 
 
+
+        if(gps == null) {
+            Latitude = mLastKnownLocation.getLatitude();
+            Longitude = mLastKnownLocation.getLongitude();
+        } else {
+            Latitude = gps[0];
+            Longitude = gps[1];
+        }
+
+        Log.d(TAG, Latitude +"|" + Longitude);
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(Latitude, Longitude))
+                .title("비콘"));
     }
 
     /**
@@ -179,60 +194,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
 
-//                            double Latitude = mLastKnownLocation.getLatitude();
-//                            double Longitude = mLastKnownLocation.getLongitude();
-//
-//                            LatLng latlng= new LatLng(Latitude, Longitude);
-
-                            //                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
-
-
-
-                            double Latitude1 = (double) gps_test.get(0)[0];
-                            double Longitude1 = (double) gps_test.get(0)[1];
-                            int rssi = gps_test.get(0)[2].intValue();
-
-                            LatLng latlng1= new LatLng(Latitude1, Longitude1);
-
-                            Circle circle1 = mMap.addCircle(new CircleOptions()
-                                    .center(latlng1)
-                                    .radius(rssi)
-                                    .strokeColor(Color.RED)
-                                    .fillColor(0x5985ff11));
-
-                            double Latitude2 = (double) gps_test.get(1)[0];
-                            double Longitude2 = (double) gps_test.get(1)[1];
-
-                            LatLng latlng2= new LatLng(Latitude2, Longitude2);
-
-                            Circle circle2 = mMap.addCircle(new CircleOptions()
-                                    .center(latlng2)
-                                    .radius(rssi)
-                                    .strokeColor(Color.RED)
-                                    .fillColor(0x5985ff22));
-
-                            double Latitude3 = (double) gps_test.get(2)[0];
-                            double Longitude3 = (double) gps_test.get(2)[1];
-
-                            LatLng latlng3= new LatLng(Latitude3, Longitude3);
-
-                            Circle circle3 = mMap.addCircle(new CircleOptions()
-                                    .center(latlng3)
-                                    .radius(rssi)
-                                    .strokeColor(Color.RED)
-                                    .fillColor(0x5985ff33));
-
-
-
-
-
-
-
-
-
-
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    latlng1, DEFAULT_ZOOM));
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Latitude, Longitude),  14));
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());

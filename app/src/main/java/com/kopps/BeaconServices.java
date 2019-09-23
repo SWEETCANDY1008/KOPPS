@@ -68,6 +68,8 @@ public class BeaconServices extends Service implements BeaconConsumer {
                     for (Beacon beacon : beacons) {
                         beaconList.add(beacon);
                     }
+                } else {
+                    beaconList.clear();
                 }
             }
         });

@@ -43,12 +43,11 @@
             android:value="@integer/google_play_services_version" />
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyDI9WeZvjryHyAkftAqe3U4qlyBDFUWNRU" />
+            android:value="" />
 
         <service
             android:name=".BeaconServices"/>
-        <service
-            android:name=".GPSServices"/>
+
     </application>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />

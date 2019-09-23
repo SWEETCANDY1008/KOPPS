@@ -187,7 +187,6 @@ public class GroupActivity extends AppCompatActivity {
                             Toast.makeText(getApplicationContext(), "그룹이 존재하지 않습니다.", Toast.LENGTH_LONG).show();
                         } else if(exists){
                             database.delete(value);
-                            lists.clear();
                             lists = database.getGroup();
                             adapter = new ArrayAdapter<String>(GroupActivity.this, android.R.layout.simple_list_item_1, lists);
                             ListView listview = (ListView) findViewById(R.id.listview1);

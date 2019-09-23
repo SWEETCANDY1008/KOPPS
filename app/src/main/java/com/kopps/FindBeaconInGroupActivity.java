@@ -98,7 +98,7 @@ public class FindBeaconInGroupActivity extends AppCompatActivity {
 
                 if(items > 0) {
                     String selectgroup = spinner.getSelectedItem().toString();
-                    beaconList = database.getBeaconID1(selectgroup);
+                    beaconList = database.getBeaconID1("", selectgroup);
                     for(String id1 : beaconList) {
                         findnicknamelists = database.findBeaconNICKNAME(id1);
                     }
