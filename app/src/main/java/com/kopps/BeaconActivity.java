@@ -49,9 +49,7 @@ public class BeaconActivity extends AppCompatActivity {
 
     ArrayList<Double> beacon_data = new ArrayList<>();
 
-
     private ArrayAdapter<String> adapter;
-
     private ArrayList<Beacon> findbeaconList = new ArrayList<>();
     private BeaconServices mService;
     private boolean mBound = false;
@@ -59,8 +57,6 @@ public class BeaconActivity extends AppCompatActivity {
 
     private double longs = 0.0;
     private double latis = 0.0;
-
-
 
     Runnable r = new thread();
     Thread thread;
@@ -383,27 +379,30 @@ public class BeaconActivity extends AppCompatActivity {
 //                        latis;
 //                        longs;
 //                        바로 직전위치 정보가 필요하다. 직전위치랑 비교해서 동일한 경우 insert 하지 않음
-                        beacon_data = database.getthreenearbeacongps(a);
-                        double latied = beacon_data.get(0);
-                        double longed = beacon_data.get(1);
+                        double latied;
+                        double longed;
 
-                        if((latied != latis) && (longed != longs)) {
-//                        database.insert(a, latis, longs, beacon.getDistance());
-                            Log.d("test", "add gps");
-                        } else if((latied == latis) && (longed != longs)) {
-//                        database.insert(a, latis, longs, beacon.getDistance());
-                            Log.d("test", "add gps");
-                        } else if((latied != latis) && (longed == longs)) {
-//                        database.insert(a, latis, longs, beacon.getDistance());
-                            Log.d("test", "add gps");
-                        } else if((latied == latis) && (longed == longs)){
-                            Log.d("test", "no add gps");
+                        beacon_data = database.getthreenearbeacongps(a, group_name);
+
+                        if(beacon_data.size() == 0) {
+                            database.insert(a, group_name, latis, longs, beacon.getDistance());
+                        } else {
+                            latied = beacon_data.get(0);
+                            longed = beacon_data.get(1);
+
+                            if((latied != latis) && (longed != longs)) {
+                                database.insert(a, group_name, latis, longs, beacon.getDistance());
+                                Log.d("test", "add gps");
+                            } else if((latied == latis) && (longed != longs)) {
+                                database.insert(a, group_name, latis, longs, beacon.getDistance());
+                                Log.d("test", "add gps");
+                            } else if((latied != latis) && (longed == longs)) {
+                                database.insert(a, group_name, latis, longs, beacon.getDistance());
+                                Log.d("test", "add gps");
+                            } else if((latied == latis) && (longed == longs)){
+                                Log.d("test", "no add gps");
+                            }
                         }
-
-//                        database.insert(a, latis, longs, beacon.getDistance());
-
-
-
 
                         Log.d(TAG, "database insert!!!!");
                         lists.add(test);
