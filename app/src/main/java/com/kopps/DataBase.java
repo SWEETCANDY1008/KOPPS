@@ -20,6 +20,7 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname TEXT PRIMARY KEY);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONTABLE (nickname TEXT, groupname TEXT, id1 TEXT, id2 TEXT, id3 TEXT, PRIMARY KEY(nickname, groupname));");
         db.execSQL("CREATE TABLE IF NOT EXISTS LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC);");
+        db.execSQL("CREATE TABLE IF NOT EXISTS CALCULATIED_LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, EXIST_POINT REAL , X1 REAL, Y1 REAL, X2 REAL, Y2 REAL);");
     }
 
     // DB 업그레이드를 위한 메소드
@@ -59,6 +60,7 @@ public class DataBase extends SQLiteOpenHelper {
     // BEACONTABLE
     // insert BEACONTABLE
     // BEACONTABLE에 각 정보를 추가한다.
+
     public void insert(String nickname, String groupname, String id1, String id2, String id3) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("INSERT INTO BEACONTABLE(nickname, groupname, id1, id2, id3) VALUES('" + nickname + "', '" + groupname + "', '" + id1 + "', '" + id2 + "', '" + id3 + "');");
@@ -78,17 +80,51 @@ public class DataBase extends SQLiteOpenHelper {
         db.close();
     }
 
-//    LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance INTEGER, time NUMERIC)
-// LOCATION TABLE
+    // LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance INTEGER, time NUMERIC)
+    // LOCATION TABLE
+
     public void insert(String nickname, String groupname, double latitude, double longitude, double distance) {
         SQLiteDatabase db = getWritableDatabase();
         db.execSQL("INSERT INTO LOCATION(nickname, groupname, latitude, longitude, distance, time) VALUES('" + nickname + "', '" + groupname + "','" + latitude + "', '" + longitude + "', '" + distance + "', datetime('now','localtime'));");
         db.close();
-//        nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC
+    // nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC
     }
 
 
-//    LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, id1 TEXT, id2 TEXT, id3 TEXT, latitude REAL, longitude REAL, rssi INTEGER, time NUMERIC);")
+
+
+    // CALCULATIED_LOCATION TABLE
+    // db.execSQL("CREATE TABLE IF NOT EXISTS CALCULATIED_LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, EXIST_POINT REAL , X1 REAL, Y1 REAL, X2 REAL, Y2 REAL);");
+
+    public void insert(double exist_point, double x1, double y1, double x2, double y2) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.execSQL("INSERT INTO CALCULATIED_LOCATION(EXIST_POINT, X1, Y1, X2, Y2) VALUES('" + exist_point + "', '" + x1 + "', '" + y1 + "', '" + x2 + "', '" + y2 + "');");
+        db.close();
+    }
+
+    // 위치 저장정보 초기화, 완전 새로운 위치로 이동했을 경우에 혹은 특정 버튼을 입력받았을 경우에
+
+    public void delete_CALCULATIED_LOCATION() {
+        SQLiteDatabase db = getWritableDatabase();
+        // 입력한 항목과 일치하는 행 삭제
+        db.execSQL("DELETE FROM CALCULATIED_LOCATION;");
+        db.close();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // 원하는 테이블의 모든 정보를 읽어옴
@@ -232,4 +268,33 @@ public class DataBase extends SQLiteOpenHelper {
         }
         return datalists;
     }
+
+
+    public ArrayList get_all_latis_longs(String nickname, String groupname) {
+        ArrayList<ArrayList> datalists = new ArrayList<>();
+        // 읽기가 가능하게 DB 열기
+        datalists.clear();
+
+        SQLiteDatabase db = getReadableDatabase();
+        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
+        Cursor cursor = db.rawQuery("SELECT latitude, longitude, distance FROM LOCATION WHERE nickname='" + nickname + "' AND groupname='" + groupname + "' ORDER BY time DESC ", null);
+
+        while (cursor.moveToNext()) {
+            ArrayList<Double> latis_longs = new ArrayList<>();
+
+            int a = cursor.getPosition();
+
+            Double lati = cursor.getDouble(0);
+            Double longs = cursor.getDouble(1);
+            Double distance = cursor.getDouble(2);
+
+            latis_longs.add(lati);
+            latis_longs.add(longs);
+            latis_longs.add(distance);
+
+            datalists.add(latis_longs);
+        }
+        return datalists;
+    }
 }
+

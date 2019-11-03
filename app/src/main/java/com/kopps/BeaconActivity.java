@@ -171,12 +171,13 @@ public class BeaconActivity extends AppCompatActivity {
             listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView parent, View v, int position, long id) {
-                    // 맵 화면으로 이동한다.
-                    Intent intent_map = new Intent(BeaconActivity.this, MapsActivity.class);
-                    // 계산된 좌표값을 전송해야함
-                    double gps[] = {latis, longs};
-                    intent_map.putExtra("gps", gps);
-                    startActivity(intent_map);
+                    // 계산 액티비티로 이동, 닉네임과 그룹이름을 전송시켜야 함
+                    Intent intent_calculate = new Intent(BeaconActivity.this, CalculateActivity.class);
+                    String selected_item = (String) parent.getItemAtPosition(position);
+                    String[] group_nickname = {group_name, selected_item};
+
+                    intent_calculate.putExtra("group_nickname", group_nickname);
+                    startActivity(intent_calculate);
                 }
             });
         }
@@ -426,10 +427,6 @@ public class BeaconActivity extends AppCompatActivity {
                         alarmNotification(a, 0);
                     }
                 }
-
-
-
-
             }
         });
     }
