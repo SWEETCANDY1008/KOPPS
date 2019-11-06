@@ -391,16 +391,16 @@ public class BeaconActivity extends AppCompatActivity {
                             latied = beacon_data.get(0);
                             longed = beacon_data.get(1);
 
-                            if((latied != latis) && (longed != longs)) {
+                            if((latied != latis) && (longed != longs) && (latis != 0.0) && (longs != 0.0)) {
                                 database.insert(a, group_name, latis, longs, beacon.getDistance());
                                 Log.d("test", "add gps");
-                            } else if((latied == latis) && (longed != longs)) {
+                            } else if((latied == latis) && (longed != longs) && (latis != 0.0) && (longs != 0.0)) {
                                 database.insert(a, group_name, latis, longs, beacon.getDistance());
                                 Log.d("test", "add gps");
-                            } else if((latied != latis) && (longed == longs)) {
+                            } else if((latied != latis) && (longed == longs) && (latis != 0.0) && (longs != 0.0)) {
                                 database.insert(a, group_name, latis, longs, beacon.getDistance());
                                 Log.d("test", "add gps");
-                            } else if((latied == latis) && (longed == longs)){
+                            } else if((latied == latis) && (longed == longs) && (latis == 0.0) && (longs == 0.0)){
                                 Log.d("test", "no add gps");
                             }
                         }

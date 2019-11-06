@@ -19,39 +19,34 @@ public class getDistences {
         double x0, y0, x1, y1, r0, r1;
         x_save = (int)(xa*1000) * 0.001;
         y_save = (int)(yb*1000) * 0.001;
-        x0 = (int)((xa - x_save) * 10000000);
-        y0 = (int)((ya - y_save) * 10000000);
-        x1 = (int)((xb - x_save) * 10000000);
-        y1 = (int)((yb - y_save) * 10000000);
-        r0 = ra;
-        r1 = rb;
+        x0 = (int)((xa - x_save) * 1000000);
+        y0 = (int)((ya - y_save) * 1000000);
+        x1 = (int)((xb - x_save) * 1000000);
+        y1 = (int)((yb - y_save) * 1000000);
+        r0 = (int)(ra * 10);
+        r1 = (int)(rb * 10);
 
         dx = x1 - x0;
         dy = y1 - y0;
 
         d = Math.sqrt(dy*dy + dx*dx);
 
-        if( d > (r0 + r1) ){
+        if( d > (r0 + r1) ) {
             // 외부에 존재 교점 없음
             result[0] = 0.0;
-        }
-        else if( d < Math.abs(r0 - r1) ){
+        } else if( d < Math.abs(r0 - r1) ){
             // 내부에 존재 교점 없음
             result[0] = 0.0;
-        }
-        else if((d == 0) && (r0 == r1)){
+        } else if((d == 0) && (r0 == r1)){
             // 일치
             result[0] = 3.0;
-        }
-        else if(d == r0 + r1){
+        } else if(d == r0 + r1){
             // 외접
             result[0] = 1.0;
-        }
-        else if(d == Math.abs(r0 - r1)){
+        } else if(d == Math.abs(r0 - r1)){
             // 내접
             result[0] = 1.0;
-        }
-        else {
+        } else {
             a = ((r0*r0) - (r1*r1) + (d*d) )/ (2.0*d);
 
             x2 = x0 + (dx * a/d);
@@ -79,24 +74,49 @@ public class getDistences {
         // 교점2 (result[3],result[4])
         return result;
     }
+
+    // L1 [ix, iy, jx, jy]
+    // L2 [ix, iy, j`x, j`y]
+    // L3 [i`x, i`y, jx, jy]
+    // L4 [i`x, i`y, j`x, j`y]
+
+    public double[] getDistance(double[] L1, double[] L2, double[] L3, double[] L4) {
+        double min = 10000.0;
+        int save_i = 0;
+        double[] save_d = {};
+
+        double d1, d2, d3, d4;
+        //  double d = Math.sqrt(Math.pow(x1-x, 2) + Math.pow(y1-y, 2));
+
+        // L1 [ix, iy, jx, jy]
+        d1 = Math.pow(L1[0]-L1[2], 2) + Math.pow(L1[1]-L1[3], 2);
+
+        // L2 [ix, iy, j`x, j`y]
+        d2 = Math.pow(L2[0]-L2[2], 2) + Math.pow(L2[1]-L2[3], 2);
+
+        // L3 [i`x, i`y, jx, jy]
+        d3 = Math.pow(L3[0]-L3[2], 2) + Math.pow(L3[1]-L3[3], 2);
+
+        // L4 [i`x, i`y, j`x, j`y]
+        d4 = Math.pow(L4[0]-L4[2], 2) + Math.pow(L4[1]-L4[3], 2);
+
+        double[] distance = {d1, d2, d3, d4};
+
+        for(int i=0;i<distance.length;i++) {
+            if(distance[i] < min) {
+                min = distance[i];
+                save_i = i;
+            }
+        }
+
+        switch(save_i) {
+            case 0: save_d = L1; break;
+            case 1: save_d = L2; break;
+            case 2: save_d = L3; break;
+            case 3: save_d = L4; break;
+        }
+
+        return save_d;
+    }
 }
-
-
-//    tests myTest = new tests();
-//
-//    ArrayList<double[]> list = new ArrayList<>();
-//
-//    double[] c1 = myTest.getIntersection(37.00871002, 127.2643369, 12.17613878, 37.00871338, 127.2643575, 12.2177363);
-//    double[] c2 = myTest.getIntersection(37.00871902, 127.2643747, 12.89265442, 37.00869931, 127.2642646, 15.25851497);
-//
-//    	System.out.println("c1결과");
-//        for(int i=0;i<5;i++) {
-//        System.out.println(c1[i]);
-//    }
-//
-//        System.out.println("c2결과");
-//        for(int i=0;i<5;i++) {
-//        System.out.println(c2[i]);
-//    }
-//
 

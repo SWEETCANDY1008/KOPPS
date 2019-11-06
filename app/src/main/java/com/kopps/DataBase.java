@@ -282,8 +282,6 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             ArrayList<Double> latis_longs = new ArrayList<>();
 
-            int a = cursor.getPosition();
-
             Double lati = cursor.getDouble(0);
             Double longs = cursor.getDouble(1);
             Double distance = cursor.getDouble(2);
