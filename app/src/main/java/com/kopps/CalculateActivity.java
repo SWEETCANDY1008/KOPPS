@@ -1,6 +1,7 @@
 package com.kopps;
 
 import android.content.Intent;
+import android.location.Location;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -24,9 +25,13 @@ public class CalculateActivity extends AppCompatActivity {
         // db에서 해당 그룹 닉네임의 모든 위치정보를 가져옴
         // 형태 : ArrayList 내부에 ArrayList
         ArrayList<ArrayList> list = database.get_all_latis_longs(nick_name, group_name);
+        double[] distance = new double[2];
+
 
         if(list.size() > 1) {
             //  database.delete_CALCULATIED_LOCATION();
+
+            int size = list.size()-1;
 
             ArrayList<Double> Last_located = list.get(0);
             ArrayList<Double> Previous_located1 = list.get(1);
@@ -53,6 +58,21 @@ public class CalculateActivity extends AppCompatActivity {
             double[] calculated_located2 = calculate.getIntersection(located2[0], located2[1], located2[2], located2[3], located2[4], located2[5]);
 
 
+//  외부에 존재 교점 없음
+//  result[0] = 0.0;
+
+//  내부에 존재 교점 없음
+//  result[0] = 0.0;
+
+//  일치
+//  result[0] = 3.0;
+
+//  외접
+//  result[0] = 1.0;
+
+//  내접
+//  result[0] = 1.0;
+
 
             // 만약 두 경우 모두 교점이 생긴다면
             if(calculated_located1[0] == 2.0 && calculated_located2[0] == 2.0) {
@@ -66,10 +86,13 @@ public class CalculateActivity extends AppCompatActivity {
                 double[] L3 = {calculated_located1[3], calculated_located1[4], calculated_located2[1], calculated_located2[2]};
                 double[] L4 = {calculated_located1[3], calculated_located1[4], calculated_located2[3], calculated_located2[4]};
 
-                double[] distance = calculate.getDistance(L1, L2, L3, L4);
+                distance = calculate.getDistance(L1, L2, L3, L4);
 
                 System.out.println("distance결과");
                 System.out.println(distance[0] + "/" + distance[1]);
+            } else {
+                distance[0] = Last_located.get(0);
+                distance[1] = Last_located.get(1);
             }
 
             //  database.insert(calculated[0], calculated[1], calculated[2], calculated[3], calculated[4]);
@@ -88,7 +111,7 @@ public class CalculateActivity extends AppCompatActivity {
         // 맵 화면으로 이동한다.
         Intent intent_map = new Intent(CalculateActivity.this, MapsActivity.class);
         // 계산된 좌표값을 전송해야함
-        double gps[] = {37.550943, 126.990948};
+        double gps[] = {distance[0], distance[1]};
         intent_map.putExtra("gps", gps);
         startActivity(intent_map);
         finish();
