@@ -174,7 +174,7 @@ public class FindBeaconActivity extends AppCompatActivity {
                     buttons.setOnClickListener(new Button.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+                            final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
 
                             AlertDialog.Builder dialog = new AlertDialog.Builder(FindBeaconActivity.this);
                             dialog.setTitle("비콘 별명 저장");

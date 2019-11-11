@@ -25,7 +25,7 @@ public class GroupActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
 
 
         lists = database.getGroup();

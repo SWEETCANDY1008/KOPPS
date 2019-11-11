@@ -4,9 +4,8 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".BeaconAddActivity"
+    tools:context=".FindBeaconActivity"
     android:id="@+id/linearlayout">
-
 
     <ToggleButton
         android:layout_width="match_parent"

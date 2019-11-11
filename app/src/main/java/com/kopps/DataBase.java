@@ -20,7 +20,6 @@ public class DataBase extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE IF NOT EXISTS GROUPTABLE (groupname TEXT PRIMARY KEY);");
         db.execSQL("CREATE TABLE IF NOT EXISTS BEACONTABLE (nickname TEXT, groupname TEXT, id1 TEXT, id2 TEXT, id3 TEXT, PRIMARY KEY(nickname, groupname));");
         db.execSQL("CREATE TABLE IF NOT EXISTS LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC);");
-        db.execSQL("CREATE TABLE IF NOT EXISTS CALCULATIED_LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, EXIST_POINT REAL , X1 REAL, Y1 REAL, X2 REAL, Y2 REAL);");
     }
 
     // DB 업그레이드를 위한 메소드
@@ -90,59 +89,6 @@ public class DataBase extends SQLiteOpenHelper {
     // nickname TEXT, groupname TEXT, latitude REAL, longitude REAL, distance REAL, time NUMERIC
     }
 
-
-
-
-    // CALCULATIED_LOCATION TABLE
-    // db.execSQL("CREATE TABLE IF NOT EXISTS CALCULATIED_LOCATION (ID INTEGER PRIMARY KEY AUTOINCREMENT, EXIST_POINT REAL , X1 REAL, Y1 REAL, X2 REAL, Y2 REAL);");
-
-    public void insert(double exist_point, double x1, double y1, double x2, double y2) {
-        SQLiteDatabase db = getWritableDatabase();
-        db.execSQL("INSERT INTO CALCULATIED_LOCATION(EXIST_POINT, X1, Y1, X2, Y2) VALUES('" + exist_point + "', '" + x1 + "', '" + y1 + "', '" + x2 + "', '" + y2 + "');");
-        db.close();
-    }
-
-    // 위치 저장정보 초기화, 완전 새로운 위치로 이동했을 경우에 혹은 특정 버튼을 입력받았을 경우에
-
-    public void delete_CALCULATIED_LOCATION() {
-        SQLiteDatabase db = getWritableDatabase();
-        // 입력한 항목과 일치하는 행 삭제
-        db.execSQL("DELETE FROM CALCULATIED_LOCATION;");
-        db.close();
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    // 원하는 테이블의 모든 정보를 읽어옴
-    public ArrayList getResult(String table) {
-        ArrayList<String> datalist = new ArrayList<>();
-        // 읽기가 가능하게 DB 열기
-        datalist.clear();
-        SQLiteDatabase db = getReadableDatabase();
-        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM '"+ table+ "'", null);
-        while (cursor.moveToNext()) {
-            datalist.add(cursor.getString(0));
-        }
-
-        return datalist;
-    }
-
-
     public ArrayList getGroup() {
         ArrayList<String> datalist = new ArrayList<>();
         // 읽기가 가능하게 DB 열기
@@ -211,35 +157,6 @@ public class DataBase extends SQLiteOpenHelper {
         while (cursor.moveToNext()) {
             datalist.add(cursor.getString(4));
         }
-        return datalist;
-    }
-
-
-    public ArrayList getBeaconNICKNAME(String groupname) {
-        ArrayList<String> datalist = new ArrayList<>();
-        // 읽기가 가능하게 DB 열기
-        datalist.clear();
-        SQLiteDatabase db = getReadableDatabase();
-        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE groupname='" + groupname + "'", null);
-        while (cursor.moveToNext()) {
-            datalist.add(cursor.getString(0));
-        }
-
-        return datalist;
-    }
-
-    public ArrayList findBeaconNICKNAME(String id1) {
-        ArrayList<String> datalist = new ArrayList<>();
-        // 읽기가 가능하게 DB 열기
-        datalist.clear();
-        SQLiteDatabase db = getReadableDatabase();
-        // DB에 있는 데이터를 쉽게 처리하기 위해 Cursor를 사용하여 테이블에 있는 모든 데이터 출력
-        Cursor cursor = db.rawQuery("SELECT * FROM BEACONTABLE WHERE id1='" + id1 + "'", null);
-        while (cursor.moveToNext()) {
-            datalist.add(cursor.getString(0));
-        }
-
         return datalist;
     }
 //    insert(String nickname, double latitude, double longitude, double distance)

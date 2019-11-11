@@ -44,6 +44,16 @@ public class BeaconActivity extends AppCompatActivity {
     ArrayList<String> ID1 = new ArrayList<>();
     ArrayList<String> ID2 = new ArrayList<>();
     ArrayList<String> ID3 = new ArrayList<>();
+
+    ArrayList<String> Find_ID1 = new ArrayList<>();
+    ArrayList<String> Find_ID2 = new ArrayList<>();
+    ArrayList<String> Find_ID3 = new ArrayList<>();
+
+    ArrayList<String> Save_ID1 = new ArrayList<>();
+    ArrayList<String> Save_ID2 = new ArrayList<>();
+    ArrayList<String> Save_ID3 = new ArrayList<>();
+
+
     ArrayList<String> beaconlist = new ArrayList<>();
     ArrayList<String> lists = new ArrayList<>();
 
@@ -83,12 +93,12 @@ public class BeaconActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
         beaconlist.clear();
         lists.clear();
         beaconlist = database.getBeacon(group_name);
         for(String a : beaconlist) {
-            test = a + "\n거리 : 15.7m";
+            test = a + "\n거리 : Loading...";
             lists.add(test);
         }
         adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -101,7 +111,7 @@ public class BeaconActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_beacon);
-        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
 
         intent_beacon = new Intent(BeaconActivity.this, BeaconServices.class);
         bindService(intent_beacon, mConnection, Context.BIND_AUTO_CREATE);
@@ -110,7 +120,7 @@ public class BeaconActivity extends AppCompatActivity {
         group_name = intent.getExtras().getString("group");
         beaconlist = database.getBeacon(group_name);
         for(String a : beaconlist) {
-            test = a + "\n거리 : 15.7m";
+            test = a + "\n거리 : Loading...";
             lists.add(test);
         }
 
@@ -237,7 +247,7 @@ public class BeaconActivity extends AppCompatActivity {
                             lists.clear();
                             beaconlist = database.getBeacon(group_name);
                             for(String a : beaconlist) {
-                                test = a + "\n거리 : 15.7m";
+                                test = a + "\n거리 : Loading...";
                                 lists.add(test);
                             }
                             adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -286,7 +296,7 @@ public class BeaconActivity extends AppCompatActivity {
                             lists.clear();
                             beaconlist = database.getBeacon(group_name);
                             for(String a : beaconlist) {
-                                test = a + "\n거리 : 15.7m";
+                                test = a + "\n거리 : Loading...";
                                 lists.add(test);
                             }
                             adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
@@ -350,19 +360,35 @@ public class BeaconActivity extends AppCompatActivity {
     }
 
     private void logToDisplay() {
-        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
         runOnUiThread(new Runnable() {
             public void run() {
                 // 감지되는 비콘들
                 findbeaconList = mService.getBeaconList();
+                lists.clear();
+                Find_ID1.clear();
+                Find_ID2.clear();
+                Find_ID3.clear();
 
                 for(final Beacon beacon : findbeaconList) {
+                    Save_ID1.clear();
+                    Save_ID2.clear();
+                    Save_ID3.clear();
+
+                    Find_ID1.add(beacon.getId1().toString());
+                    Find_ID2.add(beacon.getId2().toString());
+                    Find_ID3.add(beacon.getId3().toString());
+
                     // 비콘이 감지될때 마다 현재 위치 저장
                     beaconlist.clear();
                     beacon_data.clear();
-                    lists.clear();
                     beaconlist = database.getBeacon(group_name);
-                    String distance = String.valueOf(beacon.getDistance());
+//                    String distance = String.format("%.2f", beacon.getDistance());
+                    String distance = "";
+
+                    String beacon_id1 = String.valueOf(beacon.getId1());
+                    String beacon_id2 = String.valueOf(beacon.getId2());
+                    String beacon_id3 = String.valueOf(beacon.getId3());
 
                     // DB에 저장된 비콘들
                     for(String a : beaconlist) {
@@ -370,11 +396,21 @@ public class BeaconActivity extends AppCompatActivity {
                         ID2 = database.getBeaconID2(a, group_name);
                         ID3 = database.getBeaconID3(a, group_name);
 
-                        String beacon_id1 = String.valueOf(beacon.getId1());
-                        String beacon_id2 = String.valueOf(beacon.getId2());
-                        String beacon_id3 = String.valueOf(beacon.getId3());
+                        String ID1_tostring = ID1.get(0);
+                        String ID2_tostring = ID2.get(0);
+                        String ID3_tostring = ID3.get(0);
 
-                        test = a + "\n거리 : " + distance + "m";
+                        Save_ID1.add(ID1_tostring);
+                        Save_ID2.add(ID2_tostring);
+                        Save_ID3.add(ID3_tostring);
+
+                        if(((ID1_tostring == beacon_id1) || (ID1_tostring.equals(beacon_id1)))
+                            && ((ID2_tostring == beacon_id2) || (ID2_tostring.equals(beacon_id2)))
+                            && ((ID3_tostring == beacon_id3) || (ID3_tostring.equals(beacon_id3)))) {
+                            distance = String.format("%.3f", beacon.getDistance());
+                            test = a + "\n거리 : " + distance + "m";
+                            lists.add(test);
+                        }
 
 //                        계속 측정되고있는 현재 위치
 //                        latis;
@@ -406,30 +442,113 @@ public class BeaconActivity extends AppCompatActivity {
                         }
 
                         Log.d(TAG, "database insert!!!!");
-                        lists.add(test);
 
-                        if(!ID1.contains(beacon_id1)
-                                && !ID2.contains(beacon_id2)
-                                && !ID3.contains(beacon_id3)) {
-                            alarmNotification(a, 0);
-                            Log.d(TAG, "알람이 떠야 합니다.");
-                        }
 
+
+//                        if(!ID1.contains(beacon_id1)
+//                                && !ID2.contains(beacon_id2)
+//                                && !ID3.contains(beacon_id3)) {
+//                            alarmNotification(a, 0);
+//                            Log.d(TAG, "알람이 떠야 합니다.");
+//                        }
                     }
-                    adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
-                    ListView listview = (ListView) findViewById(R.id.listview1);
-                    listview.setAdapter(BeaconActivity.this.adapter);
-                    adapter.notifyDataSetChanged();
                 }
+
+
+
+
+
+
+
+                adapter = new ArrayAdapter<String>(BeaconActivity.this, android.R.layout.simple_list_item_1, lists);
+                ListView listview = (ListView) findViewById(R.id.listview1);
+                listview.setAdapter(BeaconActivity.this.adapter);
+                adapter.notifyDataSetChanged();
 
                 if(findbeaconList.size() == 0) {
+                    int i = 0;
                     for(String a : beaconlist) {
-                        alarmNotification(a, 0);
+                        alarmNotification(a, i);
+                        i++;
+                    }
+                } else if(findbeaconList.size() > 0) {
+                    // 저장되어있는게 현재 찾은거에서 없는경우 알람
+                    for(int i=0;i<Save_ID1.size();i++) {
+                        if(!Find_ID3.contains(Save_ID3.get(i))
+                                || !Find_ID2.contains(Save_ID2.get(i))
+                                || !Find_ID1.contains(Save_ID1.get(i))) {
+                            // 알람
+                            String name = beaconlist.get(i);
+                            alarmNotification(name, i);
+                        }
                     }
                 }
+
+
+
+//                // 찾은거
+//                Find_ID1.clear();
+//                Find_ID2.clear();
+//                Find_ID3.clear();
+//
+//                // 저장되어있는거
+//                Save_ID1.clear();
+//                Save_ID2.clear();
+//                Save_ID3.clear();
+
             }
         });
     }
+
+//                if((ID1_tostring == beacon_id1) || (ID1_tostring.equals(beacon_id1))
+//                        && (ID2_tostring == beacon_id2) || (ID2_tostring.equals(beacon_id2))
+//                        && (ID3_tostring == beacon_id3) || (ID3_tostring.equals(beacon_id3))) {
+
+
+//                else {
+//                    // Find_IDx => 현재 찾은 비콘들의 idx 값
+//                    // IDx => 현재 DB에 저장된 idx 값
+//                    // 현재 찾은것들에서 DB에 저장된게 없는 경우에 알람.
+//                    // 현재 찾은것들 안에서 DB에 저장된게 있는지 확인해야 하니까 DB값을 하나씩 가져와서 현재 찾은것들 안에 들어있는지 판단하면 됨
+//
+//                    for(String save_beacon : beaconlist) {
+//                        ID1 = database.getBeaconID1(save_beacon, group_name);
+//                        ID2 = database.getBeaconID2(save_beacon, group_name);
+//                        ID3 = database.getBeaconID3(save_beacon, group_name);
+//
+//                        boolean id1_contain = true;
+//                        boolean id2_contain = true;
+//                        boolean id3_contain = true;
+//
+//                        for(String id1 : ID1) {
+//                            if(Find_ID1.contains(id1)) {
+//                                id1_contain = true;
+//                            } else {
+//                                id1_contain = false;
+//                            }
+//                        }
+//                        for(String id2 : ID2) {
+//                            if(Find_ID2.contains(id2)) {
+//                                id2_contain = true;
+//                            } else {
+//                                id2_contain = false;
+//                            }
+//                        }
+//                        for(String id3 : ID3) {
+//                            if(Find_ID3.contains(id3)) {
+//                                id3_contain = true;
+//                            } else {
+//                                id3_contain = false;
+//                            }
+//                        }
+//                        if(id1_contain == false && id2_contain == false && id3_contain == false) {
+//                            alarmNotification(save_beacon, 0);
+//                        }
+//                    }
+//                }
+//
+//                    findbeaconList 에 들은 비콘들과 ID1 ID2 ID3 를 비교하여 없는 경우 알람
+
 
     private final LocationListener mLocationListener = new LocationListener() {
         public void onLocationChanged(Location location) {

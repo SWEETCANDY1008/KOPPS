@@ -12,7 +12,7 @@ public class CalculateActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        final DataBase database = new DataBase(getApplicationContext(), "Test.db", null, 1);
+        final DataBase database = new DataBase(getApplicationContext(), "kopps.db", null, 1);
         getDistences calculate = new getDistences();
 
         Intent intent = getIntent();
