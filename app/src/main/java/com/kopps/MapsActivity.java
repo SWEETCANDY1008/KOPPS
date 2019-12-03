@@ -1,5 +1,6 @@
 package com.kopps;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.location.Location;
@@ -20,24 +21,31 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.Circle;
 import com.google.android.gms.maps.model.CircleOptions;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.Polygon;
 import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
+import org.altbeacon.beacon.Beacon;
+
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MapsActivity extends AppCompatActivity implements OnMapReadyCallback, GoogleMap.OnPolylineClickListener,
         GoogleMap.OnPolygonClickListener {
-
+    private double[] gps;
     private static final String TAG = "MapsActivity";
     private GoogleMap mMap;
     private CameraPosition mCameraPosition;
-
+    double Latitude, Longitude;
 
     // The entry points to the Places API.
     private GeoDataClient mGeoDataClient;
@@ -63,7 +71,13 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+    //        Log.d("maps", String.valueOf(gps_test.get(0)));
+
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_maps);
+
+        Intent intent = getIntent();
+        gps = intent.getDoubleArrayExtra("gps");
 
         // Retrieve location and camera position from saved instance state.
         if (savedInstanceState != null) {
@@ -72,7 +86,7 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         }
 
         // Retrieve the content view that renders the map.
-        setContentView(R.layout.activity_maps);
+
 
         // Construct a GeoDataClient.
         mGeoDataClient = Places.getGeoDataClient(this, null);
@@ -144,6 +158,20 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         getDeviceLocation();
 
 
+
+        if(gps == null) {
+            Latitude = mLastKnownLocation.getLatitude();
+            Longitude = mLastKnownLocation.getLongitude();
+        } else {
+            Latitude = gps[0];
+            Longitude = gps[1];
+        }
+
+        Log.d(TAG, Latitude +"|" + Longitude);
+
+        map.addMarker(new MarkerOptions()
+                .position(new LatLng(Latitude, Longitude))
+                .title("비콘"));
     }
 
     /**
@@ -166,28 +194,12 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
                             // Set the map's camera position to the current location of the device.
                             mLastKnownLocation = task.getResult();
 
-                            double Latitude = mLastKnownLocation.getLatitude();
-                            double Longitude = mLastKnownLocation.getLongitude();
-
-                            LatLng latlng= new LatLng(Latitude, Longitude);
-
-                            //                            new LatLng(mLastKnownLocation.getLatitude(), mLastKnownLocation.getLongitude())
-
-                            Circle circle = mMap.addCircle(new CircleOptions()
-                                    .center(latlng)
-                                    .radius(50)
-                                    .strokeColor(Color.RED)
-                                    .fillColor(0x5985ffff));
-
-                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(
-                                    latlng, DEFAULT_ZOOM));
+                            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(Latitude, Longitude),  14));
                         } else {
                             Log.d(TAG, "Current location is null. Using defaults.");
                             Log.e(TAG, "Exception: %s", task.getException());
                             mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(mDefaultLocation, DEFAULT_ZOOM));
                             mMap.getUiSettings().setMyLocationButtonEnabled(false);
-
-
                         }
                     }
                 });

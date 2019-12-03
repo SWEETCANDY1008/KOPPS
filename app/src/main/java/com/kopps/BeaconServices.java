@@ -6,23 +6,19 @@ import android.os.Binder;
 import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
-
 import org.altbeacon.beacon.Beacon;
 import org.altbeacon.beacon.BeaconConsumer;
 import org.altbeacon.beacon.BeaconManager;
 import org.altbeacon.beacon.BeaconParser;
 import org.altbeacon.beacon.RangeNotifier;
 import org.altbeacon.beacon.Region;
-
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
-
 
 public class BeaconServices extends Service implements BeaconConsumer {
     protected static final String TAG = "BeaconServices";
     private BeaconManager beaconManager = BeaconManager.getInstanceForApplication(this);
-    private List<Beacon> beaconList = new ArrayList<>();
+    private ArrayList<Beacon> beaconList = new ArrayList<>();
 
     private final IBinder mBinder = new LocalBinder();
 
@@ -35,6 +31,11 @@ public class BeaconServices extends Service implements BeaconConsumer {
     @Override
     public IBinder onBind(Intent intent) {
         return mBinder;
+    }
+
+    @Override
+    public boolean onUnbind(Intent intent) {
+        return super.onUnbind(intent);
     }
 
     @Override
@@ -56,18 +57,6 @@ public class BeaconServices extends Service implements BeaconConsumer {
         beaconManager.unbind(this);
     }
 
-//    @Override
-//    public void onPause() {
-//        super.onPause();
-//        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(true);
-//    }
-//
-//    @Override
-//    public void onResume() {
-//        super.onResume();
-//        if (beaconManager.isBound(this)) beaconManager.setBackgroundMode(false);
-//    }
-
     @Override
     public void onBeaconServiceConnect() {
         beaconManager.setRangeNotifier(new RangeNotifier() {
@@ -79,7 +68,8 @@ public class BeaconServices extends Service implements BeaconConsumer {
                     for (Beacon beacon : beacons) {
                         beaconList.add(beacon);
                     }
-                    logToDisplay();
+                } else {
+                    beaconList.clear();
                 }
             }
         });
@@ -87,21 +77,11 @@ public class BeaconServices extends Service implements BeaconConsumer {
         try {
             beaconManager.startRangingBeaconsInRegion(new Region("myRangingUniqueId", null, null, null));
         } catch (RemoteException e) {
-
         }
     }
 
     // 비콘 리스트를 반환해 줄 메소드
-    public List<Beacon> getBeaconList() {
+    public ArrayList<Beacon> getBeaconList() {
         return beaconList;
-    }
-
-    private void logToDisplay() {
-        String lists = "";
-
-        for (Beacon beacon : beaconList) {
-            lists = lists + "major : " + beacon.getId2() + " / minor : " + beacon.getId3() + " / 거리 : " + String.format("%.3f", beacon.getDistance()) + " / meters." + beacon.getRssi() + "\n";
-            Log.d(TAG, "major : " + beacon.getId2() + " Distance : " + String.format("%.3f", beacon.getDistance())+ " meters away." + beacon.getRssi() + "\n");
-        }
     }
 }
